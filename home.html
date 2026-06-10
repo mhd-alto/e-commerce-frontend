@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    
     <title>EcoFront — Home</title>
 
     <!-- Bootstrap 5 CDN -->
@@ -33,7 +33,7 @@
               <i class="fa-solid fa-seedling text-white"></i>
             </div>
             <div>
-              <div class="fw-bold">EcoFront</div>
+              <div class="fw-bold text-success">EcoFront</div>
               <div class="small" style="color: rgba(255,255,255,0.65);">Premium e-commerce</div>
             </div>
           </div>
@@ -55,17 +55,42 @@
         </div>
 
         <div class="d-flex align-items-center gap-2">
-          <!-- Cart button -->
+          <!-- Cart button with dynamic badge -->
           <button
             type="button"
-            class="btn btn-sm bb-cart bb-anim-btn"
+            class="btn btn-sm bb-cart bb-anim-btn position-relative"
             style="border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92); border-radius: 14px;"
             aria-label="Cart"
             title="Cart"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cartOffcanvas"
+            aria-controls="cartOffcanvas"
           >
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="visually-hidden">Cart</span>
+
+            <span
+              id="cartCountBadge"
+              class="badge rounded-pill"
+              style="
+                position: absolute;
+                top: -6px;
+                right: -6px;
+                background: linear-gradient(135deg, var(--primary), var(--primary-2));
+                color: #fff;
+                font-weight: 700;
+                min-width: 20px;
+                height: 20px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transform-origin: center;
+                transition: transform 160ms ease, opacity 160ms ease;
+              "
+              aria-label="Items in cart"
+            >0</span>
           </button>
+
 
           <!-- Login/Register triggers modal -->
           <button
@@ -82,6 +107,111 @@
     </nav>
 
     <!-- Main Content -->
+
+    <!-- Custom Cart/Offcanvas/Checkout Animations -->
+    <style>
+      /* -----------------------------
+         Cart / Offcanvas / Modal UI
+         ----------------------------- */
+
+      @keyframes bb-badge-pulse {
+        0% {
+          transform: scale(1);
+        }
+        45% {
+          transform: scale(1.28);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .bb-cart-badge--pulse {
+        animation: bb-badge-pulse 360ms ease;
+      }
+
+      @keyframes bb-cart-item-in {
+        from {
+          opacity: 0;
+          transform: translateX(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .bb-cart-item {
+        animation: bb-cart-item-in 260ms ease both;
+      }
+
+      .bb-cart-item--removing {
+        opacity: 0;
+        transform: translateX(12px);
+        transition: opacity 180ms ease, transform 180ms ease;
+        pointer-events: none;
+      }
+
+      .bb-qty-btn {
+        min-width: 36px;
+        height: 36px;
+      }
+
+      .bb-cart-summary {
+        position: sticky;
+        bottom: 0;
+        background: rgba(12, 16, 28, 0.86);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .bb-success-mark {
+        width: 84px;
+        height: 84px;
+        border-radius: 22px;
+        border: 1px solid rgba(6, 182, 212, 0.35);
+        background: radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.2), transparent 60%);
+        display: grid;
+        place-items: center;
+        box-shadow: 0 18px 60px rgba(6, 182, 212, 0.16);
+      }
+
+      .bb-check-path {
+        stroke-dasharray: 120;
+        stroke-dashoffset: 120;
+        animation: bb-draw-check 720ms cubic-bezier(0.2, 0.8, 0.2, 1) 120ms forwards;
+      }
+
+      @keyframes bb-draw-check {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .bb-success-ring {
+        stroke-dasharray: 220;
+        stroke-dashoffset: 220;
+        animation: bb-draw-ring 720ms cubic-bezier(0.2, 0.8, 0.2, 1) 0ms forwards;
+      }
+
+      @keyframes bb-draw-ring {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bb-cart-item,
+        .bb-cart-item--removing,
+        .bb-cart-badge--pulse,
+        .bb-check-path,
+        .bb-success-ring {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+
     <main class="bb-page-padding">
       <section class="container px-3 px-md-4 py-4">
         <div class="d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-between gap-3 mb-3">
@@ -110,6 +240,201 @@
           </div>
         </div>
 
+        <!-- Cart Offcanvas (Shopping Cart) -->
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="cartOffcanvas"
+          aria-labelledby="cartOffcanvasLabel"
+        >
+          <div class="offcanvas-header" style="border-bottom: 1px solid rgba(255,255,255,0.10);">
+            <h5 class="offcanvas-title" id="cartOffcanvasLabel">
+              <i class="fa-solid fa-cart-shopping me-2" style="color: rgba(6, 182, 212, 0.95);"></i>
+              Your Cart
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body" style="padding: 0;">
+            <div id="cartItemsContainer" class="px-3 pt-3 pb-2" style="max-height: calc(100vh - 220px); overflow: auto; background-color: blueviolet;">
+              <!-- Filled by JS -->
+              <div class="text-center" style="color: rgba(255,255,255,0.65);">
+                <div class="mb-2">
+                  <i class="fa-regular fa-circle-check" style="font-size: 40px;"></i>
+                </div>
+                Your cart is empty.
+              </div>
+            </div>
+
+            <!-- Sticky summary -->
+            <div class="bb-cart-summary px-3 py-3">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div style="color: rgba(255,255,255,0.72);">Total</div>
+                <div class="fw-bold" id="cartTotalPrice">$0.00</div>
+              </div>
+
+              <button
+                type="button"
+                class="btn bb-btn-primary bb-anim-btn w-100"
+                id="proceedToCheckoutBtn"
+                data-bs-toggle="modal"
+                data-bs-target="#orderModal"
+                disabled
+              >
+                Proceed to Checkout
+              </button>
+
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Modal (Checkout) -->
+        <div
+          class="modal fade"
+          id="orderModal"
+          tabindex="-1"
+          aria-labelledby="orderModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                <h5 class="modal-title" id="orderModalLabel">
+                  <i class="fa-solid fa-receipt me-2" style="color: rgba(6, 182, 212, 0.95);"></i>
+                  Checkout
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                <!-- Step 1 -->
+                <div id="checkoutStep1" class="checkout-step">
+                  <div class="mb-3">
+                    <div class="fw-semibold mb-1">Shipping Address</div>
+                    <div class="small" style="color: rgba(255,255,255,0.62);">Mock form. No data is sent.</div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label" style="color: rgba(255,255,255,0.75);">Full Name</label>
+                      <input class="form-control" id="shipFullName" placeholder="Your full name" />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" style="color: rgba(255,255,255,0.75);">Email</label>
+                      <input class="form-control" id="shipEmail" placeholder="you@example.com" />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" style="color: rgba(255,255,255,0.75);">Address</label>
+                      <input class="form-control" id="shipAddress" placeholder="123 Main St" />
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-end mt-4">
+                    <button type="button" class="btn bb-btn-primary bb-anim-btn" id="checkoutNextToPayment">
+                      Continue
+                      <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="checkoutStep2" class="checkout-step" style="display: none;">
+                  <div class="mb-3">
+                    <div class="fw-semibold mb-1">Payment Method</div>
+                    <div class="small" style="color: rgba(255,255,255,0.62);">Select one option.</div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <button type="button" class="btn bb-btn-soft bb-anim-btn payment-option" data-method="card">
+                      <span class="d-flex align-items-center justify-content-between">
+                        <span><i class="fa-solid fa-credit-card me-2"></i> Card</span>
+                        <span class="badge rounded-pill" style="background: rgba(79, 70, 229, 0.25); color: rgba(255,255,255,0.9);">Default</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn bb-btn-soft bb-anim-btn payment-option" data-method="paypal">
+                      <span class="d-flex align-items-center justify-content-between">
+                        <span><i class="fa-brands fa-paypal me-2"></i> PayPal</span>
+                        <span class="badge rounded-pill" style="background: rgba(6, 182, 212, 0.18); color: rgba(255,255,255,0.9);">Fast</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn bb-btn-soft bb-anim-btn payment-option" data-method="cod">
+                      <span class="d-flex align-items-center justify-content-between">
+                        <span><i class="fa-solid fa-truck-fast me-2"></i> Cash on Delivery</span>
+                        <span class="badge rounded-pill" style="background: rgba(255, 255, 255, 0.08); color: rgba(255,255,255,0.85);">Relax</span>
+                      </span>
+                    </button>
+                  </div>
+
+                  <input type="hidden" id="selectedPaymentMethod" value="card" />
+
+                  <div class="d-flex justify-content-between mt-4">
+                    <button type="button" class="btn btn-outline-light bb-anim-btn" id="checkoutBackToAddress">
+                      <i class="fa-solid fa-arrow-left me-2"></i> Back
+                    </button>
+                    <button type="button" class="btn bb-btn-primary bb-anim-btn" id="placeOrderBtn">
+                      Place Order
+                      <i class="fa-solid fa-check ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Success State -->
+                <div id="checkoutSuccess" class="checkout-step" style="display: none; text-align: center;">
+                  <div class="d-flex justify-content-center mb-3">
+                    <div class="bb-success-mark">
+                      <svg class="bb-success-check" viewBox="0 0 64 64" aria-hidden="true">
+                        <circle
+                          class="bb-success-ring"
+                          cx="32"
+                          cy="32"
+                          r="22"
+                          fill="none"
+                          stroke="rgba(6, 182, 212, 0.95)"
+                          stroke-width="4"
+                        />
+                        <path
+                          class="bb-check-path"
+                          d="M18 33 L28 43 L46 21"
+                          fill="none"
+                          stroke="rgba(6, 182, 212, 0.95)"
+                          stroke-width="5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="fw-bold" style="font-size: 1.2rem;">Order placed!</div>
+                  <div class="small" style="color: rgba(255,255,255,0.62);">
+                    Your order is now pending approval (mock).
+                  </div>
+
+                  <div class="mt-4">
+                    <div class="p-3" style="border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; background: rgba(255,255,255,0.04);">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <span style="color: rgba(255,255,255,0.70);">Order Total</span>
+                        <span class="fw-bold" id="successOrderTotal">$0.00</span>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-between mt-2">
+                        <span style="color: rgba(255,255,255,0.70);">Status</span>
+                        <span class="badge rounded-pill" style="background: rgba(6, 182, 212, 0.20); color: rgba(255,255,255,0.92);">pending</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2 mt-4">
+                    <button type="button" class="btn bb-btn-primary bb-anim-btn" id="successCloseBtn" data-bs-dismiss="modal">
+                      Done
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Product Grid -->
         <div class="row g-3">
           <!-- Product Card 1 -->
@@ -127,7 +452,14 @@
                 </div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100 bb-add-to-cart"
+                    type="button"
+                    data-product-id="501"
+                    data-product-title="Celestial Lamp"
+                    data-product-price="59.00"
+                    data-product-img="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=70"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -443,6 +775,273 @@
             e.preventDefault();
           });
         });
+
+        /* -----------------------------
+           Cart + Checkout (mock)
+           Tables (future mapping)
+           - Users: identity fields
+           - Products: id,name,price,quantity,...
+           - Orders: productid, userid, quantity, price, isapproved, status
+           ----------------------------- */
+
+        const cartState = {
+          items: [] /* {productId, title, price, img, qty} */
+        };
+
+        const money = (n) => {
+          const num = Number(n || 0);
+          return '$' + num.toFixed(2);
+        };
+
+        const byId = (id) => document.getElementById(id);
+
+        const cartCountBadge = byId('cartCountBadge');
+        const cartItemsContainer = byId('cartItemsContainer');
+        const cartTotalPrice = byId('cartTotalPrice');
+        const proceedToCheckoutBtn = byId('proceedToCheckoutBtn');
+
+        const checkoutStep1 = byId('checkoutStep1');
+        const checkoutStep2 = byId('checkoutStep2');
+        const checkoutSuccess = byId('checkoutSuccess');
+        const checkoutNextToPayment = byId('checkoutNextToPayment');
+        const checkoutBackToAddress = byId('checkoutBackToAddress');
+        const placeOrderBtn = byId('placeOrderBtn');
+
+        const shipFullName = byId('shipFullName');
+        const shipEmail = byId('shipEmail');
+        const shipAddress = byId('shipAddress');
+
+        const selectedPaymentMethod = byId('selectedPaymentMethod');
+        const paymentOptions = document.querySelectorAll('.payment-option');
+
+        const successOrderTotal = byId('successOrderTotal');
+
+        const successCloseBtn = byId('successCloseBtn');
+
+        function getCartCount() {
+          return cartState.items.reduce((sum, it) => sum + it.qty, 0);
+        }
+
+        function getCartTotal() {
+          return cartState.items.reduce((sum, it) => sum + it.price * it.qty, 0);
+        }
+
+        function setCartButtonCount() {
+          const count = getCartCount();
+          if (cartCountBadge) cartCountBadge.textContent = String(count);
+          if (proceedToCheckoutBtn) {
+            proceedToCheckoutBtn.disabled = cartState.items.length === 0;
+          }
+        }
+
+        function pulseBadge() {
+          if (!cartCountBadge) return;
+          cartCountBadge.classList.remove('bb-cart-badge--pulse');
+          // reflow
+          void cartCountBadge.offsetWidth;
+          cartCountBadge.classList.add('bb-cart-badge--pulse');
+        }
+
+        function renderCart() {
+          const items = cartState.items;
+          if (!cartItemsContainer) return;
+
+          if (items.length === 0) {
+            cartItemsContainer.innerHTML = `
+              <div class="text-center" style="color: rgba(255,255,255,0.65);">
+                <div class="mb-2">
+                  <i class="fa-regular fa-circle-check" style="font-size: 40px;"></i>
+                </div>
+                Your cart is empty.
+              </div>
+            `;
+          } else {
+            cartItemsContainer.innerHTML = '';
+            items.forEach((it) => {
+              const row = document.createElement('div');
+              row.className = 'bb-cart-item px-0 mb-3';
+              row.dataset.productId = it.productId;
+
+              row.innerHTML = `
+                <div
+                  style="border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); border-radius: 16px; padding: 12px;"
+                >
+                  <div class="d-flex gap-3 align-items-start">
+                    <img
+                      src="${it.img}"
+                      alt="${it.title}"
+                      style="width: 54px; height: 54px; border-radius: 14px; object-fit: cover; border: 1px solid rgba(255,255,255,0.10);"
+                    />
+
+                    <div class="flex-grow-1">
+                      <div class="fw-semibold" style="line-height: 1.2;">${it.title}</div>
+                      <div class="small" style="color: rgba(255,255,255,0.70);">${money(it.price)} each</div>
+
+                      <div class="d-flex align-items-center justify-content-between mt-3">
+                        <div class="d-flex align-items-center gap-2">
+                          <button class="btn btn-sm bb-btn-soft bb-anim-btn bb-qty-btn" type="button" data-action="dec" aria-label="Decrease quantity">-</button>
+                          <div class="fw-bold" style="min-width: 18px; text-align: center;">${it.qty}</div>
+                          <button class="btn btn-sm bb-btn-soft bb-anim-btn bb-qty-btn" type="button" data-action="inc" aria-label="Increase quantity">+</button>
+                        </div>
+                        <div class="fw-bold">${money(it.price * it.qty)}</div>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-sm btn-outline-light bb-anim-btn" type="button" data-action="remove" aria-label="Remove item">
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              `;
+
+              // Quantity & remove handlers
+              const decBtn = row.querySelector('[data-action="dec"]');
+              const incBtn = row.querySelector('[data-action="inc"]');
+              const removeBtn = row.querySelector('[data-action="remove"]');
+
+              decBtn.addEventListener('click', () => updateQty(it.productId, it.qty - 1));
+              incBtn.addEventListener('click', () => updateQty(it.productId, it.qty + 1));
+
+              removeBtn.addEventListener('click', () => {
+                // fade-out animation
+                row.classList.add('bb-cart-item--removing');
+                setTimeout(() => {
+                  removeItem(it.productId);
+                }, 170);
+              });
+
+              cartItemsContainer.appendChild(row);
+            });
+          }
+
+          cartTotalPrice.textContent = money(getCartTotal());
+          setCartButtonCount();
+        }
+
+        function addToCart(product) {
+          const { productId, title, price, img } = product;
+          const found = cartState.items.find((x) => String(x.productId) === String(productId));
+          if (found) {
+            found.qty += 1;
+          } else {
+            cartState.items.push({
+              productId,
+              title,
+              price: Number(price),
+              img,
+              qty: 1,
+            });
+          }
+          renderCart();
+          pulseBadge();
+        }
+
+        function updateQty(productId, newQty) {
+          const qty = Math.max(0, Number(newQty));
+          const it = cartState.items.find((x) => String(x.productId) === String(productId));
+          if (!it) return;
+
+          if (qty === 0) {
+            removeItem(productId);
+            return;
+          }
+
+          it.qty = qty;
+          renderCart();
+        }
+
+        function removeItem(productId) {
+          cartState.items = cartState.items.filter((x) => String(x.productId) !== String(productId));
+          renderCart();
+        }
+
+        function bindAddToCartButtons() {
+          document.querySelectorAll('.bb-add-to-cart').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const productId = btn.dataset.productId;
+              const title = btn.dataset.productTitle;
+              const price = btn.dataset.productPrice;
+              const img = btn.dataset.productImg;
+
+              addToCart({ productId, title, price, img });
+
+              // open offcanvas (smooth UX)
+              const offcanvasEl = document.getElementById('cartOffcanvas');
+              if (offcanvasEl) {
+                const oc = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+                oc.show();
+              }
+            });
+          });
+        }
+
+        function resetCheckoutSteps() {
+          if (checkoutStep1) checkoutStep1.style.display = '';
+          if (checkoutStep2) checkoutStep2.style.display = 'none';
+          if (checkoutSuccess) checkoutSuccess.style.display = 'none';
+        }
+
+        function goToStep(step) {
+          if (checkoutStep1) checkoutStep1.style.display = step === 1 ? '' : 'none';
+          if (checkoutStep2) checkoutStep2.style.display = step === 2 ? '' : 'none';
+          if (checkoutSuccess) checkoutSuccess.style.display = step === 'success' ? '' : 'none';
+        }
+
+        paymentOptions.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            paymentOptions.forEach((b) => {
+              b.classList.remove('btn-primary');
+              b.classList.remove('btn-starry');
+              b.classList.add('bb-btn-soft');
+            });
+
+            btn.classList.remove('bb-btn-soft');
+            btn.classList.add('btn-primary');
+
+            selectedPaymentMethod.value = btn.dataset.method || 'card';
+          });
+        });
+
+        checkoutNextToPayment.addEventListener('click', () => {
+          // mock validation
+          goToStep(2);
+        });
+
+        checkoutBackToAddress.addEventListener('click', () => {
+          goToStep(1);
+        });
+
+        placeOrderBtn.addEventListener('click', () => {
+          const total = getCartTotal();
+          if (total <= 0) return;
+
+          // Here we'd create Orders records:
+          // { productid, userid, quantity, price, isapproved, status }
+          // Mock: just show success UI with pending status.
+          successOrderTotal.textContent = money(total);
+
+          // transition to success
+          goToStep('success');
+
+          // close offcanvas (if open)
+          const offcanvasEl = document.getElementById('cartOffcanvas');
+          if (offcanvasEl) {
+            const oc = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+            oc.hide();
+          }
+        });
+
+        // When modal opens, reset steps to Step 1.
+        const orderModalEl = document.getElementById('orderModal');
+        if (orderModalEl) {
+          orderModalEl.addEventListener('shown.bs.modal', () => {
+            resetCheckoutSteps();
+          });
+        }
+
+        // Init
+        bindAddToCartButtons();
+        renderCart();
       })();
     </script>
   </body>
