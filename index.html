@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Starry Night Admin Dashboard</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Theme CSS -->
+    <link href="./styles/starry.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Bootstrap JS (required for dropdown/modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./app.js" defer></script>
+
+    <!-- Sidebar -->
+    <div class="bb-sidebar bg-transparent" id="bbSidebar">
+      <div class="bb-sidebar-inner">
+        <div class="bb-brand d-flex align-items-center gap-2 px-2 py-3">
+          <div class="bb-logo">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div>
+            <div class="bb-brand-title">Starry</div>
+            <div class="bb-brand-subtitle">Admin Dashboard</div>
+          </div>
+        </div>
+
+        <div class="bb-nav px-2">
+          <button
+            class="bb-nav-toggle btn btn-link text-decoration-none text-starry-2 d-lg-none"
+            type="button"
+            aria-label="Toggle sidebar"
+            id="bbSidebarToggle"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="bb-nav-links">
+            <a class="bb-nav-link active" href="./index.html"
+              ><i class="fa-regular fa-compass"></i> Overview</a
+            >
+            <a class="bb-nav-link" href="./users.html"
+              ><i class="fa-solid fa-users"></i> Users</a
+            >
+            <a class="bb-nav-link" href="./products.html"
+              ><i class="fa-solid fa-boxes-stacked"></i> Products</a
+            >
+            <a class="bb-nav-link" href="./orders.html"
+              ><i class="fa-solid fa-receipt"></i> Orders</a
+            >
+          </div>
+        </div>
+
+        <div class="bb-sidebar-footer p-3">
+          <div class="bb-glow-card p-3">
+            <div class="d-flex align-items-center justify-content-between gap-2">
+              <div class="text-starry-3">
+                <div class="fw-semibold">System</div>
+                <div class="small op-7">All services operational</div>
+              </div>
+              <i class="fa-solid fa-circle-notch text-starry-accent"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Topbar -->
+    <header class="bb-topbar">
+      <div class="container-fluid px-3 px-md-4">
+        <div class="bb-topbar-inner">
+          <button
+            class="btn btn-sm btn-outline-starry d-lg-none"
+            type="button"
+            aria-label="Toggle sidebar"
+            id="bbSidebarToggle2"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="bb-search d-none d-md-flex">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              class="form-control form-control-sm"
+              placeholder="Search users, products, orders..."
+              type="text"
+              disabled
+            />
+          </div>
+
+          <div class="bb-actions">
+            <button class="icon-btn" type="button" aria-label="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="badge-starry">3</span>
+            </button>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-sm btn-outline-starry dropdown-toggle d-flex align-items-center gap-2"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="bb-avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <span class="d-none d-sm-inline text-starry-1">Admin</span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end bb-dropdown">
+                <li>
+                  <div class="px-3 py-2">
+                    <div class="fw-semibold text-starry-1">Vincent Ops</div>
+                    <div class="small op-7">vincent@starry.local</div>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider bb-divider" /></li>
+                <li>
+                  <a class="dropdown-item bb-dropdown-item" href="#"
+                    ><i class="fa-solid fa-gear me-2 text-starry-2"></i> Settings</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item bb-dropdown-item" href="#"
+                    ><i class="fa-solid fa-circle-question me-2 text-starry-2"></i>
+                    Support</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item bb-dropdown-item text-danger"
+                    href="#"
+                    ><i class="fa-solid fa-right-from-bracket me-2"></i> Sign out</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="bb-main">
+      <div class="container-fluid px-3 px-md-4">
+        <!-- Overview Page -->
+        <section class="bb-page active" data-page-section="overview">
+          <div class="bb-page-head d-flex align-items-end justify-content-between gap-3">
+            <div>
+              <h1 class="bb-h1 mb-1">Overview</h1>
+              <div class="text-starry-2">A calm cosmos of metrics and activity.</div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-starry" type="button" id="btnRefresh">
+                <i class="fa-solid fa-arrows-rotate me-2"></i> Refresh
+              </button>
+              <button
+                class="btn btn-starry"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#modalAddProduct"
+              >
+                <i class="fa-solid fa-plus me-2"></i> Add Product
+              </button>
+            </div>
+          </div>
+
+          <div class="bb-stat-grid mt-3">
+            <div class="bb-stat">
+              <div class="bb-stat-icon"><i class="fa-solid fa-users"></i></div>
+              <div class="bb-stat-body">
+                <div class="bb-stat-value" id="statTotalUsers">—</div>
+                <div class="bb-stat-label">Total Users</div>
+              </div>
+            </div>
+
+            <div class="bb-stat">
+              <div class="bb-stat-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+              <div class="bb-stat-body">
+                <div class="bb-stat-value" id="statActiveProducts">—</div>
+                <div class="bb-stat-label">Active Products</div>
+              </div>
+            </div>
+
+            <div class="bb-stat">
+              <div class="bb-stat-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+              <div class="bb-stat-body">
+                <div class="bb-stat-value" id="statTotalRevenue">—</div>
+                <div class="bb-stat-label">Total Revenue</div>
+              </div>
+            </div>
+
+            <div class="bb-stat">
+              <div class="bb-stat-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="bb-stat-body">
+                <div class="bb-stat-value" id="statPendingOrders">—</div>
+                <div class="bb-stat-label">Pending Orders</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-2">
+            <div class="col-12 col-lg-7">
+              <div class="bb-glass-card h-100 p-3 p-md-4">
+                <div class="d-flex align-items-center justify-content-between gap-2">
+                  <div>
+                    <div class="fw-semibold text-starry-1">Analytics (Mock)</div>
+                    <div class="small op-7">Placeholder chart—wire up to real data later.</div>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <span class="badge-starry-pill"><i class="fa-solid fa-chart-line me-1"></i> Revenue</span>
+                    <span class="badge-starry-pill badge-alt"><i class="fa-solid fa-chart-column me-1"></i> Orders</span>
+                  </div>
+                </div>
+
+                <div class="bb-chart mt-3" aria-label="Chart placeholder">
+                  <svg width="100%" height="220" viewBox="0 0 800 220" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="lineGlow" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0%" stop-color="rgba(54,226,255,.65)" />
+                        <stop offset="50%" stop-color="rgba(76,111,255,.75)" />
+                        <stop offset="100%" stop-color="rgba(255,209,102,.55)" />
+                      </linearGradient>
+                      <filter id="glow">
+                        <feGaussianBlur stdDeviation="4" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <path
+                      d="M0,170 C60,130 120,190 180,150 C240,110 300,170 360,135 C420,100 480,160 540,120 C600,80 660,140 720,95 C760,65 780,70 800,60"
+                      fill="none"
+                      stroke="url(#lineGlow)"
+                      stroke-width="4"
+                      filter="url(#glow)"
+                    />
+                    <path
+                      d="M0,220 L0,170 C60,130 120,190 180,150 C240,110 300,170 360,135 C420,100 480,160 540,120 C600,80 660,140 720,95 C760,65 780,70 800,60 L800,220 Z"
+                      fill="rgba(54,226,255,.08)"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-5">
+              <div class="bb-glass-card h-100 p-3 p-md-4">
+                <div class="fw-semibold text-starry-1 mb-2">Recent Activity (Mock)</div>
+                <div class="small op-7 mb-3">A small feed to give the dashboard a living feel.</div>
+
+                <div class="bb-glow-card p-3 mb-2">
+                  <div class="d-flex align-items-start justify-content-between gap-2">
+                    <div>
+                      <div class="fw-semibold text-starry-1">Order #A-1042</div>
+                      <div class="small op-7">Status updated to Accepted</div>
+                    </div>
+                    <span class="badge-order-accepted badge rounded-pill">Accepted</span>
+                  </div>
+                </div>
+
+                <div class="bb-glow-card p-3 mb-2">
+                  <div class="d-flex align-items-start justify-content-between gap-2">
+                    <div>
+                      <div class="fw-semibold text-starry-1">User Verified</div>
+                      <div class="small op-7">A new account was confirmed</div>
+                    </div>
+                    <span class="badge-starry-verified badge rounded-pill">Verified</span>
+                  </div>
+                </div>
+
+                <div class="bb-glow-card p-3">
+                  <div class="d-flex align-items-start justify-content-between gap-2">
+                    <div>
+                      <div class="fw-semibold text-starry-1">Inventory Alert</div>
+                      <div class="small op-7">Stock below threshold for 2 items</div>
+                    </div>
+                    <span class="badge-order-pending badge rounded-pill">Pending</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modals: Products (needed for Overview quick action) -->
+    <div class="modal fade" id="modalAddProduct" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-starry-1">Add New Product</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label label-muted">ID</label>
+                  <input class="form-control" placeholder="e.g., 504" />
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label label-muted">Name</label>
+                  <input class="form-control" placeholder="Product name" />
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label label-muted">Price</label>
+                  <input class="form-control" type="number" placeholder="e.g., 19" />
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label label-muted">Quantity</label>
+                  <input class="form-control" type="number" placeholder="e.g., 10" />
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label label-muted">Sold Products</label>
+                  <input class="form-control" type="number" placeholder="e.g., 3" />
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label label-muted">Category</label>
+                  <input class="form-control" placeholder="e.g., Decor" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label label-muted">Description</label>
+                  <input class="form-control" placeholder="Short description" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-starry" data-bs-dismiss="modal" type="button">Cancel</button>
+            <button class="btn btn-starry" type="button" data-bs-dismiss="modal">Save Product</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

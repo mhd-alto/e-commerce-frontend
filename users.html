@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Starry Night Admin Dashboard - Users</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Theme CSS -->
+    <link href="./styles/starry.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Bootstrap JS (required for dropdown/modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./app.js" defer></script>
+
+    <!-- Sidebar -->
+    <div class="bb-sidebar bg-transparent" id="bbSidebar">
+      <div class="bb-sidebar-inner">
+        <div class="bb-brand d-flex align-items-center gap-2 px-2 py-3">
+          <div class="bb-logo">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div>
+            <div class="bb-brand-title">Starry</div>
+            <div class="bb-brand-subtitle">Admin Dashboard</div>
+          </div>
+        </div>
+
+        <div class="bb-nav px-2">
+          <button
+            class="bb-nav-toggle btn btn-link text-decoration-none text-starry-2 d-lg-none"
+            type="button"
+            aria-label="Toggle sidebar"
+            id="bbSidebarToggle"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="bb-nav-links">
+            <a class="bb-nav-link" href="./index.html"
+              ><i class="fa-regular fa-compass"></i> Overview</a
+            >
+            <a class="bb-nav-link active" href="./users.html"
+              ><i class="fa-solid fa-users"></i> Users</a
+            >
+            <a class="bb-nav-link" href="./products.html"
+              ><i class="fa-solid fa-boxes-stacked"></i> Products</a
+            >
+            <a class="bb-nav-link" href="./orders.html"
+              ><i class="fa-solid fa-receipt"></i> Orders</a
+            >
+          </div>
+        </div>
+
+        <div class="bb-sidebar-footer p-3">
+          <div class="bb-glow-card p-3">
+            <div class="d-flex align-items-center justify-content-between gap-2">
+              <div class="text-starry-3">
+                <div class="fw-semibold">System</div>
+                <div class="small op-7">All services operational</div>
+              </div>
+              <i class="fa-solid fa-circle-notch text-starry-accent"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Topbar -->
+    <header class="bb-topbar">
+      <div class="container-fluid px-3 px-md-4">
+        <div class="bb-topbar-inner">
+          <button
+            class="btn btn-sm btn-outline-starry d-lg-none"
+            type="button"
+            aria-label="Toggle sidebar"
+            id="bbSidebarToggle2"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="bb-search d-none d-md-flex">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              class="form-control form-control-sm"
+              placeholder="Search users, products, orders..."
+              type="text"
+              disabled
+            />
+          </div>
+
+          <div class="bb-actions">
+            <button class="icon-btn" type="button" aria-label="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="badge-starry">3</span>
+            </button>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-sm btn-outline-starry dropdown-toggle d-flex align-items-center gap-2"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="bb-avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <span class="d-none d-sm-inline text-starry-1">Admin</span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end bb-dropdown">
+                <li>
+                  <div class="px-3 py-2">
+                    <div class="fw-semibold text-starry-1">Vincent Ops</div>
+                    <div class="small op-7">vincent@starry.local</div>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider bb-divider" /></li>
+                <li>
+                  <a class="dropdown-item bb-dropdown-item" href="#"
+                    ><i class="fa-solid fa-gear me-2 text-starry-2"></i> Settings</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item bb-dropdown-item" href="#"
+                    ><i class="fa-solid fa-circle-question me-2 text-starry-2"></i>
+                    Support</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item bb-dropdown-item text-danger"
+                    href="#"
+                    ><i class="fa-solid fa-right-from-bracket me-2"></i> Sign out</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="bb-main">
+      <div class="container-fluid px-3 px-md-4">
+        <!-- Users Page -->
+        <section class="bb-page active" data-page-section="users">
+          <div class="bb-page-head d-flex align-items-end justify-content-between gap-3">
+            <div>
+              <h1 class="bb-h1 mb-1">Users</h1>
+              <div class="text-starry-2">Manage accounts, verification state, and codes.</div>
+            </div>
+            <div class="d-flex gap-2">
+              <button
+                class="btn btn-starry"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#modalAddUser"
+              >
+                <i class="fa-solid fa-plus me-2"></i> Add User
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle table-starry mb-0">
+                <thead>
+                  <tr>
+                    <th>User ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Code</th>
+                    <th>IsVerified</th>
+                    <th style="min-width: 180px">Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Leah Hart</td>
+                    <td>leah.hart@example.com</td>
+                    <td>••••••••</td>
+                    <td>VH-19</td>
+                    <td>
+                      <span class="badge badge-starry-verified rounded-pill">Starry Yellow</span>
+                    </td>
+                    <td>
+                      <div class="d-flex gap-2">
+                        <button
+                          class="btn btn-starry-soft btn-sm"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalEditUser"
+                          data-action="edit-user"
+                          data-user-id="1"
+                          data-full-name="Leah Hart"
+                          data-email="leah.hart@example.com"
+                          data-password="••••••••"
+                          data-code="VH-19"
+                        >
+                          <i class="fa-solid fa-pen"></i> Edit
+                        </button>
+                        <button
+                          class="btn btn-outline-starry btn-sm"
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalDeleteUser"
+                        >
+                          <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td>Noah Kim</td>
+                    <td>noah.kim@example.com</td>
+                    <td>••••••••</td>
+                    <td>VN-07</td>
+                    <td>
+                      <span class="badge badge-starry-unverified rounded-pill">Dark Blue</span>
+                    </td>
+                    <td>
+                      <div class="d-flex gap-2">
+                        <button
+                          class="btn btn-starry-soft btn-sm"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalEditUser"
+                          data-action="edit-user"
+                          data-user-id="2"
+                          data-full-name="Noah Kim"
+                          data-email="noah.kim@example.com"
+                          data-password="••••••••"
+                          data-code="VN-07"
+                        >
+                          <i class="fa-solid fa-pen"></i> Edit
+                        </button>
+                        <button
+                          class="btn btn-outline-starry btn-sm"
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalDeleteUser"
+                        >
+                          <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>3</td>
+                    <td>Mia Santos</td>
+                    <td>mia.santos@example.com</td>
+                    <td>••••••••</td>
+                    <td>MS-33</td>
+                    <td>
+                      <span class="badge badge-starry-verified rounded-pill">Starry Yellow</span>
+                    </td>
+                    <td>
+                      <div class="d-flex gap-2">
+                        <button
+                          class="btn btn-starry-soft btn-sm"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalEditUser"
+                          data-action="edit-user"
+                          data-user-id="3"
+                          data-full-name="Mia Santos"
+                          data-email="mia.santos@example.com"
+                          data-password="••••••••"
+                          data-code="MS-33"
+                        >
+                          <i class="fa-solid fa-pen"></i> Edit
+                        </button>
+                        <button
+                          class="btn btn-outline-starry btn-sm"
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalDeleteUser"
+                        >
+                          <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modals: Users -->
+    <div class="modal fade" id="modalAddUser" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-starry-1">Add User</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label label-muted">User ID</label>
+                  <input class="form-control" id="newUserId" placeholder="e.g., 3" />
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label label-muted">Full Name</label>
+                  <input class="form-control" id="newUserFullName" placeholder="Full name" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label label-muted">Email</label>
+                  <input class="form-control" id="newUserEmail" placeholder="email@example.com" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label label-muted">Password</label>
+                  <input class="form-control" id="newUserPassword" placeholder="••••••••" />
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label label-muted">Code</label>
+                  <input class="form-control" id="newUserCode" placeholder="e.g., VH-21" />
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label label-muted">IsVerified</label>
+                  <select class="form-select" id="newUserIsVerified">
+                    <option value="verified" selected>Verified (Starry Yellow)</option>
+                    <option value="unverified">Unverified (Dark Blue)</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-starry" data-bs-dismiss="modal" type="button">
+              Cancel
+            </button>
+            <button class="btn btn-starry" type="button" data-bs-dismiss="modal">
+              Save User
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalEditUser" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-starry-1">Edit User Details</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label label-muted">User ID</label>
+                  <input class="form-control" id="userId" readonly />
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label label-muted">Full Name</label>
+                  <input class="form-control" id="userFullName" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label label-muted">Email</label>
+                  <input class="form-control" id="userEmail" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label label-muted">Password</label>
+                  <input class="form-control" id="userPassword" />
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label label-muted">Code</label>
+                  <input class="form-control" id="userCode" />
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label label-muted">IsVerified</label>
+                  <select class="form-select" id="userIsVerified">
+                    <option value="verified" selected>Verified (Starry Yellow)</option>
+                    <option value="unverified">Unverified (Dark Blue)</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-starry" data-bs-dismiss="modal" type="button">
+              Cancel
+            </button>
+            <button class="btn btn-starry" type="button" data-bs-dismiss="modal">
+              Update User
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalDeleteUser" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-starry-1">Delete User</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body small op-7">This will permanently remove the user record (mock).</div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-starry" data-bs-dismiss="modal" type="button">
+              Cancel
+            </button>
+            <button class="btn btn-starry" type="button" data-bs-dismiss="modal">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Starry Night Admin Dashboard - Orders</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Theme CSS -->
+    <link href="./styles/starry.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Bootstrap JS (required for dropdown/modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./app.js" defer></script>
+
+    <!-- Sidebar -->
+    <div class="bb-sidebar bg-transparent" id="bbSidebar">
+      <div class="bb-sidebar-inner">
+        <div class="bb-brand d-flex align-items-center gap-2 px-2 py-3">
+          <div class="bb-logo">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div>
+            <div class="bb-brand-title">Starry</div>
+            <div class="bb-brand-subtitle">Admin Dashboard</div>
+          </div>
+        </div>
+
+        <div class="bb-nav px-2">
+          <button
+            class="bb-nav-toggle btn btn-link text-decoration-none text-starry-2 d-lg-none"
+            type="button"
+            aria-label="Toggle sidebar"
+            id="bbSidebarToggle"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="bb-nav-links">
+            <a class="bb-nav-link" href="./index.html"
+              ><i class="fa-regular fa-compass"></i> Overview</a
+            >
+            <a class="bb-nav-link" href="./users.html"
+              ><i class="fa-solid fa-users"></i> Users</a
+            >
+            <a class="bb-nav-link" href="./products.html"
+              ><i class="fa-solid fa-boxes-stacked"></i> Products</a
+            >
+            <a class="bb-nav-link active" href="./orders.html"
+              ><i class="fa-solid fa-receipt"></i> Orders</a
+            >
+          </div>
+        </div>
+
+        <div class="bb-sidebar-footer p-3">
+          <div class="bb-glow-card p-3">
+            <div class="d-flex align-items-center justify-content-between gap-2">
+              <div class="text-starry-3">
+                <div class="fw-semibold">System</div>
+                <div class="small op-7">All services operational</div>
+              </div>
+              <i class="fa-solid fa-circle-notch text-starry-accent"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Topbar -->
+    <header class="bb-topbar">
+      <div class="container-fluid px-3 px-md-4">
+        <div class="bb-topbar-inner">
+          <button
+            class="btn btn-sm btn-outline-starry d-lg-none"
+            type="button"
+            aria-label="Toggle sidebar"
+            id="bbSidebarToggle2"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="bb-search d-none d-md-flex">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              class="form-control form-control-sm"
+              placeholder="Search users, products, orders..."
+              type="text"
+              disabled
+            />
+          </div>
+
+          <div class="bb-actions">
+            <button class="icon-btn" type="button" aria-label="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="badge-starry">3</span>
+            </button>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-sm btn-outline-starry dropdown-toggle d-flex align-items-center gap-2"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div class="bb-avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <span class="d-none d-sm-inline text-starry-1">Admin</span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end bb-dropdown">
+                <li>
+                  <div class="px-3 py-2">
+                    <div class="fw-semibold text-starry-1">Vincent Ops</div>
+                    <div class="small op-7">vincent@starry.local</div>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider bb-divider" /></li>
+                <li>
+                  <a class="dropdown-item bb-dropdown-item" href="#"
+                    ><i class="fa-solid fa-gear me-2 text-starry-2"></i> Settings</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item bb-dropdown-item" href="#"
+                    ><i class="fa-solid fa-circle-question me-2 text-starry-2"></i>
+                    Support</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item bb-dropdown-item text-danger"
+                    href="#"
+                    ><i class="fa-solid fa-right-from-bracket me-2"></i> Sign out</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="bb-main">
+      <div class="container-fluid px-3 px-md-4">
+        <!-- Orders Page -->
+        <section class="bb-page active" data-page-section="orders">
+          <div class="bb-page-head d-flex align-items-end justify-content-between gap-3">
+            <div>
+              <h1 class="bb-h1 mb-1">Orders</h1>
+              <div class="text-starry-2">Approve, review, and manage order lifecycle.</div>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle table-starry mb-0">
+                <thead>
+                  <tr>
+                    <th>Product ID</th>
+                    <th>User ID</th>
+                    <th>Quantity</th>
+                    <th>Price (Total)</th>
+                    <th>IsApproved</th>
+                    <th>Status</th>
+                    <th style="min-width: 220px;">Controls</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>501</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>$118</td>
+                    <td><span class="badge badge-starry-verified rounded-pill">Approved</span></td>
+                    <td><span class="badge badge-order-pending rounded-pill" id="badge-order-A-1001">Pending</span></td>
+                    <td>
+                      <div class="d-flex gap-2 flex-wrap">
+                        <button
+                          class="btn btn-starry-soft btn-sm"
+                          type="button"
+                          data-order-id="A-1001"
+                          data-order-status="accepted"
+                        >
+                          <i class="fa-solid fa-check"></i> Accept
+                        </button>
+                        <button
+                          class="btn btn-starry-warn btn-sm"
+                          type="button"
+                          data-order-id="A-1001"
+                          data-order-status="rejected"
+                        >
+                          <i class="fa-solid fa-xmark"></i> Reject
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>502</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>$24</td>
+                    <td><span class="badge badge-starry-unverified rounded-pill">Not Approved</span></td>
+                    <td><span class="badge badge-order-accepted rounded-pill" id="badge-order-A-1002">Accepted</span></td>
+                    <td>
+                      <div class="d-flex gap-2 flex-wrap">
+                        <button
+                          class="btn btn-starry-soft btn-sm"
+                          type="button"
+                          data-order-id="A-1002"
+                          data-order-status="pending"
+                        >
+                          <i class="fa-solid fa-clock"></i> Pending
+                        </button>
+                        <button
+                          class="btn btn-starry-warn btn-sm"
+                          type="button"
+                          data-order-id="A-1002"
+                          data-order-status="rejected"
+                        >
+                          <i class="fa-solid fa-xmark"></i> Reject
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>503</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>$72</td>
+                    <td><span class="badge badge-starry-unverified rounded-pill">Not Approved</span></td>
+                    <td><span class="badge badge-order-rejected rounded-pill" id="badge-order-A-1003">Rejected</span></td>
+                    <td>
+                      <div class="d-flex gap-2 flex-wrap">
+                        <button
+                          class="btn btn-starry-soft btn-sm"
+                          type="button"
+                          data-order-id="A-1003"
+                          data-order-status="pending"
+                        >
+                          <i class="fa-solid fa-clock"></i> Pending
+                        </button>
+                        <button
+                          class="btn btn-outline-starry btn-sm"
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalOrderDetails"
+                        >
+                          <i class="fa-solid fa-eye"></i> Details
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modals: Orders -->
+    <div class="modal fade" id="modalOrderDetails" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-starry-1">Order Details (Mock)</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="bb-glow-card p-3">
+                  <div class="label-muted mb-1">Summary</div>
+                  <div class="fw-semibold text-starry-1">3 Items • Total $214</div>
+                  <div class="small op-7">Customer and shipment info would live here.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="bb-glow-card p-3">
+                  <div class="label-muted mb-1">Timeline</div>
+                  <div class="small op-7">Created → Reviewed → Status updated</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-starry" data-bs-dismiss="modal" type="button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
