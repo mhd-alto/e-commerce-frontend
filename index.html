@@ -352,5 +352,24 @@
       </div>
     </div>
   </body>
+<!-- Admin Authentication Check -->
+<script>
+  (function() {
+    // Check if admin is logged in
+    const adminToken = localStorage.getItem('adminToken');
+    
+    if (!adminToken) {
+      // No admin token, redirect to home page
+      console.log('No admin token found. Redirecting to home page...');
+      window.location.href = './home.html';
+      return;
+    }
+    
+    // Optional: Verify token validity with backend
+    // You can add a token verification endpoint later
+    
+    console.log('Admin logged in successfully');
+  })();
+</script>
 </html>
 

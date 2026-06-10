@@ -376,7 +376,7 @@ body::before{
 .form-control, .form-select{
   background: rgba(5, 10, 25, .45);
   border:1px solid rgba(140,170,255,.18);
-  color: rgba(234,242,255,.92);
+  color: rgba(25, 29, 36, 0.92);
 }
 .form-control:focus, .form-select:focus{
   border-color: rgba(54,226,255,.35);
