@@ -96,20 +96,30 @@ const apiGetProducts = async () => {
 /**
  * Submit an order item to the backend API
  */
-const apiCreateOrder = async ({ customerName, productId, quantity }) => {
+const apiCreateOrder = async ({ productId, quantity }) => {
+  const token = localStorage.getItem("authToken");
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
   const res = await fetch(`${BASE_URL}/orders`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ customerName, productId, quantity }),
+    headers,
+    body: JSON.stringify({ productId, quantity }),
   });
-  
+
   let data;
   try {
     data = await res.json();
   } catch {
     data = { message: await res.text() };
   }
-  
+
   if (!res.ok) {
     const msg = data?.message || "Order submission failed";
     throw new Error(msg);

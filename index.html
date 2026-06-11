@@ -356,7 +356,7 @@
 <script>
   (function() {
     // Check if admin is logged in
-    const adminToken = localStorage.getItem('adminToken');
+    const adminToken = localStorage.getItem('authToken');
     
     if (!adminToken) {
       // No admin token, redirect to home page

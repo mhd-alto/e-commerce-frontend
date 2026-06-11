@@ -1696,6 +1696,7 @@
           const found = cartState.items.find(
             (x) => String(x.productId) === String(productId),
           );
+          console.log("Adding to cart:", found);
           if (found) {
             found.qty += 1;
           } else {
@@ -1988,52 +1989,55 @@
 
         if (placeOrderBtn) {
           placeOrderBtn.addEventListener("click", async () => {
-            const customerName =
-              document.getElementById("shipFullName")?.value.trim() ||
-              "Guest Customer";
-
+            // Validate that the cart contains items before calling the API
             if (cartState.items.length === 0) {
               alert("Your cart is empty!");
               return;
             }
 
+            // 2. Visual feedback: Disable button and show a loading spinner
             placeOrderBtn.disabled = true;
             placeOrderBtn.innerHTML =
-              '<i class="fa-solid fa-spinner fa-spin me-2"></i> processing...';
+              '<i class="fa-solid fa-spinner fa-spin me-2"></i> Processing...';
 
             try {
-              // Loop and submit items in the active shopping cart
+              // 3. Sequentially process and loop through every item currently inside the cart
               for (const item of cartState.items) {
                 await apiCreateOrder({
-                  customerName: customerName,
-                  productId: item.productId,
-                  quantity: item.qty,
+                  productId: item.productId, // Dynamically maps to the current item's ID
+                  quantity: Number(item.qty), // Transmits item quantity as integer format
                 });
               }
 
-              // Update Order Total UI upon completion
+              // 4. Update the order total displayed in the success step UI upon completion
               if (successOrderTotal) {
                 successOrderTotal.textContent = cartTotalPrice.textContent;
               }
 
-              // Clear the local storage / application cart state
+              // 5. Clear your application state cart items and update the UI
               cartState.items = [];
               renderCart();
 
-              // Advance checkout modal display to step 3 (Success Stage)
-              if (checkoutStep1) checkoutStep1.style.display = "none";
-              if (checkoutStep2) checkoutStep2.style.display = "none";
-              if (checkoutSuccess) checkoutSuccess.style.display = "block";
+              // 6. Transition the checkout modal view to the final Success Step
+              goToStep("success");
+
+              // 7. Close the side shopping cart offcanvas if it's open
+              const offcanvasEl = document.getElementById("cartOffcanvas");
+              if (offcanvasEl) {
+                const oc = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+                oc.hide();
+              }
             } catch (error) {
+              // Log or show the error if any API request fails
               alert(`Checkout failed: ${error.message}`);
             } finally {
+              // Restore button state
               placeOrderBtn.disabled = false;
               placeOrderBtn.innerHTML =
                 'Place Order <i class="fa-solid fa-check ms-2"></i>';
             }
           });
         }
-
         // Initialize everything
         loadAndRenderProducts(); // <-- Add this here!
         bindAddToCartButtons();
