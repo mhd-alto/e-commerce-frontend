@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <title>EcoFront — Home</title>
 
     <!-- Bootstrap 5 CDN -->
@@ -18,8 +18,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles/style.css">
-
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
 
   <body>
@@ -34,7 +33,9 @@
             </div>
             <div>
               <div class="fw-bold text-success">EcoFront</div>
-              <div class="small" style="color: rgba(255,255,255,0.65);">Premium e-commerce</div>
+              <div class="small" style="color: rgba(255, 255, 255, 0.65)">
+                Premium e-commerce
+              </div>
             </div>
           </div>
         </a>
@@ -42,7 +43,13 @@
         <!-- Centered search input -->
         <div class="bb-search mx-auto d-none d-lg-block">
           <div class="input-group">
-            <span class="input-group-text" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12);">
+            <span
+              class="input-group-text"
+              style="
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(255, 255, 255, 0.12);
+              "
+            >
               <i class="fa-solid fa-magnifying-glass"></i>
             </span>
             <input
@@ -59,7 +66,12 @@
           <button
             type="button"
             class="btn btn-sm bb-cart bb-anim-btn position-relative"
-            style="border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92); border-radius: 14px;"
+            style="
+              border: 1px solid rgba(255, 255, 255, 0.14);
+              background: rgba(255, 255, 255, 0.06);
+              color: rgba(255, 255, 255, 0.92);
+              border-radius: 14px;
+            "
             aria-label="Cart"
             title="Cart"
             data-bs-toggle="offcanvas"
@@ -76,7 +88,11 @@
                 position: absolute;
                 top: -6px;
                 right: -6px;
-                background: linear-gradient(135deg, var(--primary), var(--primary-2));
+                background: linear-gradient(
+                  135deg,
+                  var(--primary),
+                  var(--primary-2)
+                );
                 color: #fff;
                 font-weight: 700;
                 min-width: 20px;
@@ -85,12 +101,14 @@
                 align-items: center;
                 justify-content: center;
                 transform-origin: center;
-                transition: transform 160ms ease, opacity 160ms ease;
+                transition:
+                  transform 160ms ease,
+                  opacity 160ms ease;
               "
               aria-label="Items in cart"
-            >0</span>
+              >0</span
+            >
           </button>
-
 
           <!-- Login/Register triggers modal -->
           <button
@@ -103,7 +121,6 @@
             <i class="fa-regular fa-user me-2" id="authButtonIcon"></i>
             <span id="authButtonText">Login / Register</span>
           </button>
-
         </div>
       </div>
     </nav>
@@ -150,7 +167,9 @@
       .bb-cart-item--removing {
         opacity: 0;
         transform: translateX(12px);
-        transition: opacity 180ms ease, transform 180ms ease;
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease;
         pointer-events: none;
       }
 
@@ -172,7 +191,11 @@
         height: 84px;
         border-radius: 22px;
         border: 1px solid rgba(6, 182, 212, 0.35);
-        background: radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.2), transparent 60%);
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(6, 182, 212, 0.2),
+          transparent 60%
+        );
         display: grid;
         place-items: center;
         box-shadow: 0 18px 60px rgba(6, 182, 212, 0.16);
@@ -181,7 +204,8 @@
       .bb-check-path {
         stroke-dasharray: 120;
         stroke-dashoffset: 120;
-        animation: bb-draw-check 720ms cubic-bezier(0.2, 0.8, 0.2, 1) 120ms forwards;
+        animation: bb-draw-check 720ms cubic-bezier(0.2, 0.8, 0.2, 1) 120ms
+          forwards;
       }
 
       @keyframes bb-draw-check {
@@ -193,7 +217,8 @@
       .bb-success-ring {
         stroke-dasharray: 220;
         stroke-dashoffset: 220;
-        animation: bb-draw-ring 720ms cubic-bezier(0.2, 0.8, 0.2, 1) 0ms forwards;
+        animation: bb-draw-ring 720ms cubic-bezier(0.2, 0.8, 0.2, 1) 0ms
+          forwards;
       }
 
       @keyframes bb-draw-ring {
@@ -216,11 +241,17 @@
 
     <main class="bb-page-padding">
       <section class="container px-3 px-md-4 py-4">
-        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-between gap-3 mb-3">
+        <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-between gap-3 mb-3"
+        >
           <div>
             <h1 class="display-6 fw-bold mb-1">Shop the cosmos</h1>
-            <p class="mb-0" style="color: rgba(255,255,255,0.68); max-width: 640px;">
-              Discover minimalist essentials with a premium feel. Add items to your cart in one tap.
+            <p
+              class="mb-0"
+              style="color: rgba(255, 255, 255, 0.68); max-width: 640px"
+            >
+              Discover minimalist essentials with a premium feel. Add items to
+              your cart in one tap.
             </p>
           </div>
 
@@ -228,7 +259,13 @@
             <!-- Optional mobile search (bonus, still matches requirements) -->
             <div class="d-lg-none">
               <div class="input-group">
-                <span class="input-group-text" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12);">
+                <span
+                  class="input-group-text"
+                  style="
+                    background: rgba(255, 255, 255, 0.06);
+                    border-color: rgba(255, 255, 255, 0.12);
+                  "
+                >
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <input
@@ -249,20 +286,42 @@
           id="cartOffcanvas"
           aria-labelledby="cartOffcanvasLabel"
         >
-          <div class="offcanvas-header" style="border-bottom: 1px solid rgba(255,255,255,0.10);">
+          <div
+            class="offcanvas-header"
+            style="border-bottom: 1px solid rgba(255, 255, 255, 0.1)"
+          >
             <h5 class="offcanvas-title" id="cartOffcanvasLabel">
-              <i class="fa-solid fa-cart-shopping me-2" style="color: rgba(6, 182, 212, 0.95);"></i>
+              <i
+                class="fa-solid fa-cart-shopping me-2"
+                style="color: rgba(6, 182, 212, 0.95)"
+              ></i>
               Your Cart
             </h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
           </div>
 
-          <div class="offcanvas-body" style="padding: 0;">
-            <div id="cartItemsContainer" class="px-3 pt-3 pb-2" style="max-height: calc(100vh - 220px); overflow: auto; background-color: blueviolet;">
+          <div class="offcanvas-body" style="padding: 0">
+            <div
+              id="cartItemsContainer"
+              class="px-3 pt-3 pb-2"
+              style="
+                max-height: calc(100vh - 220px);
+                overflow: auto;
+                background-color: blueviolet;
+              "
+            >
               <!-- Filled by JS -->
-              <div class="text-center" style="color: rgba(255,255,255,0.65);">
+              <div class="text-center" style="color: rgba(255, 255, 255, 0.65)">
                 <div class="mb-2">
-                  <i class="fa-regular fa-circle-check" style="font-size: 40px;"></i>
+                  <i
+                    class="fa-regular fa-circle-check"
+                    style="font-size: 40px"
+                  ></i>
                 </div>
                 Your cart is empty.
               </div>
@@ -270,8 +329,10 @@
 
             <!-- Sticky summary -->
             <div class="bb-cart-summary px-3 py-3">
-              <div class="d-flex align-items-center justify-content-between mb-2">
-                <div style="color: rgba(255,255,255,0.72);">Total</div>
+              <div
+                class="d-flex align-items-center justify-content-between mb-2"
+              >
+                <div style="color: rgba(255, 255, 255, 0.72)">Total</div>
                 <div class="fw-bold" id="cartTotalPrice">$0.00</div>
               </div>
 
@@ -285,8 +346,6 @@
               >
                 Proceed to Checkout
               </button>
-
-
             </div>
           </div>
         </div>
@@ -301,12 +360,23 @@
         >
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-              <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <div
+                class="modal-header"
+                style="border-bottom: 1px solid rgba(255, 255, 255, 0.08)"
+              >
                 <h5 class="modal-title" id="orderModalLabel">
-                  <i class="fa-solid fa-receipt me-2" style="color: rgba(6, 182, 212, 0.95);"></i>
+                  <i
+                    class="fa-solid fa-receipt me-2"
+                    style="color: rgba(6, 182, 212, 0.95)"
+                  ></i>
                   Checkout
                 </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
 
               <div class="modal-body">
@@ -314,26 +384,56 @@
                 <div id="checkoutStep1" class="checkout-step">
                   <div class="mb-3">
                     <div class="fw-semibold mb-1">Shipping Address</div>
-                    <div class="small" style="color: rgba(255,255,255,0.62);">Mock form. No data is sent.</div>
+                    <div class="small" style="color: rgba(255, 255, 255, 0.62)">
+                      Mock form. No data is sent.
+                    </div>
                   </div>
 
                   <div class="row g-3">
                     <div class="col-md-6">
-                      <label class="form-label" style="color: rgba(255,255,255,0.75);">Full Name</label>
-                      <input class="form-control" id="shipFullName" placeholder="Your full name" />
+                      <label
+                        class="form-label"
+                        style="color: rgba(255, 255, 255, 0.75)"
+                        >Full Name</label
+                      >
+                      <input
+                        class="form-control"
+                        id="shipFullName"
+                        placeholder="Your full name"
+                      />
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label" style="color: rgba(255,255,255,0.75);">Email</label>
-                      <input class="form-control" id="shipEmail" placeholder="you@example.com" />
+                      <label
+                        class="form-label"
+                        style="color: rgba(255, 255, 255, 0.75)"
+                        >Email</label
+                      >
+                      <input
+                        class="form-control"
+                        id="shipEmail"
+                        placeholder="you@example.com"
+                      />
                     </div>
                     <div class="col-12">
-                      <label class="form-label" style="color: rgba(255,255,255,0.75);">Address</label>
-                      <input class="form-control" id="shipAddress" placeholder="123 Main St" />
+                      <label
+                        class="form-label"
+                        style="color: rgba(255, 255, 255, 0.75)"
+                        >Address</label
+                      >
+                      <input
+                        class="form-control"
+                        id="shipAddress"
+                        placeholder="123 Main St"
+                      />
                     </div>
                   </div>
 
                   <div class="d-flex justify-content-end mt-4">
-                    <button type="button" class="btn bb-btn-primary bb-anim-btn" id="checkoutNextToPayment">
+                    <button
+                      type="button"
+                      class="btn bb-btn-primary bb-anim-btn"
+                      id="checkoutNextToPayment"
+                    >
                       Continue
                       <i class="fa-solid fa-arrow-right ms-2"></i>
                     </button>
@@ -341,40 +441,105 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div id="checkoutStep2" class="checkout-step" style="display: none;">
+                <div
+                  id="checkoutStep2"
+                  class="checkout-step"
+                  style="display: none"
+                >
                   <div class="mb-3">
                     <div class="fw-semibold mb-1">Payment Method</div>
-                    <div class="small" style="color: rgba(255,255,255,0.62);">Select one option.</div>
+                    <div class="small" style="color: rgba(255, 255, 255, 0.62)">
+                      Select one option.
+                    </div>
                   </div>
 
                   <div class="d-grid gap-2">
-                    <button type="button" class="btn bb-btn-soft bb-anim-btn payment-option" data-method="card">
-                      <span class="d-flex align-items-center justify-content-between">
-                        <span><i class="fa-solid fa-credit-card me-2"></i> Card</span>
-                        <span class="badge rounded-pill" style="background: rgba(79, 70, 229, 0.25); color: rgba(255,255,255,0.9);">Default</span>
+                    <button
+                      type="button"
+                      class="btn bb-btn-soft bb-anim-btn payment-option"
+                      data-method="card"
+                    >
+                      <span
+                        class="d-flex align-items-center justify-content-between"
+                      >
+                        <span
+                          ><i class="fa-solid fa-credit-card me-2"></i>
+                          Card</span
+                        >
+                        <span
+                          class="badge rounded-pill"
+                          style="
+                            background: rgba(79, 70, 229, 0.25);
+                            color: rgba(255, 255, 255, 0.9);
+                          "
+                          >Default</span
+                        >
                       </span>
                     </button>
-                    <button type="button" class="btn bb-btn-soft bb-anim-btn payment-option" data-method="paypal">
-                      <span class="d-flex align-items-center justify-content-between">
-                        <span><i class="fa-brands fa-paypal me-2"></i> PayPal</span>
-                        <span class="badge rounded-pill" style="background: rgba(6, 182, 212, 0.18); color: rgba(255,255,255,0.9);">Fast</span>
+                    <button
+                      type="button"
+                      class="btn bb-btn-soft bb-anim-btn payment-option"
+                      data-method="paypal"
+                    >
+                      <span
+                        class="d-flex align-items-center justify-content-between"
+                      >
+                        <span
+                          ><i class="fa-brands fa-paypal me-2"></i> PayPal</span
+                        >
+                        <span
+                          class="badge rounded-pill"
+                          style="
+                            background: rgba(6, 182, 212, 0.18);
+                            color: rgba(255, 255, 255, 0.9);
+                          "
+                          >Fast</span
+                        >
                       </span>
                     </button>
-                    <button type="button" class="btn bb-btn-soft bb-anim-btn payment-option" data-method="cod">
-                      <span class="d-flex align-items-center justify-content-between">
-                        <span><i class="fa-solid fa-truck-fast me-2"></i> Cash on Delivery</span>
-                        <span class="badge rounded-pill" style="background: rgba(255, 255, 255, 0.08); color: rgba(255,255,255,0.85);">Relax</span>
+                    <button
+                      type="button"
+                      class="btn bb-btn-soft bb-anim-btn payment-option"
+                      data-method="cod"
+                    >
+                      <span
+                        class="d-flex align-items-center justify-content-between"
+                      >
+                        <span
+                          ><i class="fa-solid fa-truck-fast me-2"></i> Cash on
+                          Delivery</span
+                        >
+                        <span
+                          class="badge rounded-pill"
+                          style="
+                            background: rgba(255, 255, 255, 0.08);
+                            color: rgba(255, 255, 255, 0.85);
+                          "
+                          >Relax</span
+                        >
                       </span>
                     </button>
                   </div>
 
-                  <input type="hidden" id="selectedPaymentMethod" value="card" />
+                  <input
+                    type="hidden"
+                    id="selectedPaymentMethod"
+                    value="card"
+                  />
 
                   <div class="d-flex justify-content-between mt-4">
-                    <button type="button" class="btn btn-outline-light bb-anim-btn" id="checkoutBackToAddress">
+                    <button
+                      type="button"
+                      class="btn btn-outline-light bb-anim-btn"
+                      id="checkoutBackToAddress"
+                    >
                       <i class="fa-solid fa-arrow-left me-2"></i> Back
                     </button>
-                    <button type="button" class="btn bb-btn-primary bb-anim-btn" id="placeOrderBtn">
+                    <button
+                      type="button"
+                      class="btn bb-btn-primary bb-anim-btn"
+                      id="placeOrderBtn"
+                    >
                       Place Order
                       <i class="fa-solid fa-check ms-2"></i>
                     </button>
@@ -382,10 +547,18 @@
                 </div>
 
                 <!-- Success State -->
-                <div id="checkoutSuccess" class="checkout-step" style="display: none; text-align: center;">
+                <div
+                  id="checkoutSuccess"
+                  class="checkout-step"
+                  style="display: none; text-align: center"
+                >
                   <div class="d-flex justify-content-center mb-3">
                     <div class="bb-success-mark">
-                      <svg class="bb-success-check" viewBox="0 0 64 64" aria-hidden="true">
+                      <svg
+                        class="bb-success-check"
+                        viewBox="0 0 64 64"
+                        aria-hidden="true"
+                      >
                         <circle
                           class="bb-success-ring"
                           cx="32"
@@ -408,26 +581,57 @@
                     </div>
                   </div>
 
-                  <div class="fw-bold" style="font-size: 1.2rem;">Order placed!</div>
-                  <div class="small" style="color: rgba(255,255,255,0.62);">
+                  <div class="fw-bold" style="font-size: 1.2rem">
+                    Order placed!
+                  </div>
+                  <div class="small" style="color: rgba(255, 255, 255, 0.62)">
                     Your order is now pending approval (mock).
                   </div>
 
                   <div class="mt-4">
-                    <div class="p-3" style="border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; background: rgba(255,255,255,0.04);">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <span style="color: rgba(255,255,255,0.70);">Order Total</span>
-                        <span class="fw-bold" id="successOrderTotal">$0.00</span>
+                    <div
+                      class="p-3"
+                      style="
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 16px;
+                        background: rgba(255, 255, 255, 0.04);
+                      "
+                    >
+                      <div
+                        class="d-flex align-items-center justify-content-between"
+                      >
+                        <span style="color: rgba(255, 255, 255, 0.7)"
+                          >Order Total</span
+                        >
+                        <span class="fw-bold" id="successOrderTotal"
+                          >$0.00</span
+                        >
                       </div>
-                      <div class="d-flex align-items-center justify-content-between mt-2">
-                        <span style="color: rgba(255,255,255,0.70);">Status</span>
-                        <span class="badge rounded-pill" style="background: rgba(6, 182, 212, 0.20); color: rgba(255,255,255,0.92);">pending</span>
+                      <div
+                        class="d-flex align-items-center justify-content-between mt-2"
+                      >
+                        <span style="color: rgba(255, 255, 255, 0.7)"
+                          >Status</span
+                        >
+                        <span
+                          class="badge rounded-pill"
+                          style="
+                            background: rgba(6, 182, 212, 0.2);
+                            color: rgba(255, 255, 255, 0.92);
+                          "
+                          >pending</span
+                        >
                       </div>
                     </div>
                   </div>
 
                   <div class="d-grid gap-2 mt-4">
-                    <button type="button" class="btn bb-btn-primary bb-anim-btn" id="successCloseBtn" data-bs-dismiss="modal">
+                    <button
+                      type="button"
+                      class="btn bb-btn-primary bb-anim-btn"
+                      id="successCloseBtn"
+                      data-bs-dismiss="modal"
+                    >
                       Done
                     </button>
                   </div>
@@ -449,7 +653,10 @@
               />
               <div class="card-body d-flex flex-column">
                 <div class="bb-product-title">Celestial Lamp</div>
-                <div class="bb-product-price mt-2 fw-semibold" style="color: rgba(255,255,255,0.92);">
+                <div
+                  class="bb-product-price mt-2 fw-semibold"
+                  style="color: rgba(255, 255, 255, 0.92)"
+                >
                   $59.00
                 </div>
 
@@ -483,7 +690,10 @@
                 <div class="bb-product-price mt-2 fw-semibold">$24.00</div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100"
+                    type="button"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -505,7 +715,10 @@
                 <div class="bb-product-price mt-2 fw-semibold">$18.00</div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100"
+                    type="button"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -527,7 +740,10 @@
                 <div class="bb-product-price mt-2 fw-semibold">$72.00</div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100"
+                    type="button"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -549,7 +765,10 @@
                 <div class="bb-product-price mt-2 fw-semibold">$29.00</div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100"
+                    type="button"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -571,7 +790,10 @@
                 <div class="bb-product-price mt-2 fw-semibold">$16.00</div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100"
+                    type="button"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -593,7 +815,10 @@
                 <div class="bb-product-price mt-2 fw-semibold">$44.00</div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100"
+                    type="button"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -615,7 +840,10 @@
                 <div class="bb-product-price mt-2 fw-semibold">$38.00</div>
 
                 <div class="mt-3">
-                  <button class="btn btn-sm bb-btn-primary bb-anim-btn w-100" type="button">
+                  <button
+                    class="btn btn-sm bb-btn-primary bb-anim-btn w-100"
+                    type="button"
+                  >
                     <i class="fa-solid fa-plus me-2"></i>
                     Add to Cart
                   </button>
@@ -628,258 +856,700 @@
     </main>
 
     <!-- Auth Modal: Login / Register (single modal with fade + tabs) -->
-<!-- Auth Modal: Login / Register (with Admin Login tab) -->
-<div
-  class="modal fade"
-  id="authModal"
-  tabindex="-1"
-  aria-labelledby="authModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-        <h5 class="modal-title" id="authModalLabel">
-          <i class="fa-solid fa-user me-2"></i>
-          Welcome
-        </h5>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-
-      <div class="modal-body">
-        <!-- Tabs -->
-        <ul class="nav nav-tabs" id="authTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="tab-login"
-              data-bs-toggle="tab"
-              data-bs-target="#pane-login"
-              type="button"
-              role="tab"
-              aria-controls="pane-login"
-              aria-selected="true"
-            >
-              <i class="fa-regular fa-user me-1"></i> Log In
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="tab-signup"
-              data-bs-toggle="tab"
-              data-bs-target="#pane-signup"
-              type="button"
-              role="tab"
-              aria-controls="pane-signup"
-              aria-selected="false"
-            >
-              <i class="fa-regular fa-pen-to-square me-1"></i> Sign Up
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="tab-admin"
-              data-bs-toggle="tab"
-              data-bs-target="#pane-admin"
-              type="button"
-              role="tab"
-              aria-controls="pane-admin"
-              aria-selected="false"
-            >
-              <i class="fa-solid fa-shield-haltered me-1"></i> Admin
-            </button>
-          </li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="bb-tab-content tab-content mt-3">
-          <!-- User Login Pane -->
+    <!-- Auth Modal: Login / Register (with Admin Login tab) -->
+    <div
+      class="modal fade"
+      id="authModal"
+      tabindex="-1"
+      aria-labelledby="authModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
           <div
-            class="tab-pane fade show active bb-tab-pane"
-            id="pane-login"
-            role="tabpanel"
-            aria-labelledby="tab-login"
-            tabindex="0"
+            class="modal-header"
+            style="border-bottom: 1px solid rgba(255, 255, 255, 0.08)"
           >
-            <form class="user-login-form needs-validation" novalidate>
-              <div class="mb-3">
-                <label class="form-label" style="color: rgba(255,255,255,0.75);">Email</label>
-                <input type="email" class="form-control user-login-email" placeholder="you@example.com" required />
-              </div>
-              <div class="mb-3">
-                <label class="form-label" style="color: rgba(255,255,255,0.75);">Password</label>
-                <input type="password" class="form-control user-login-password" placeholder="••••••••" required />
-              </div>
-
-              <div id="userLoginError" class="small mt-2" style="display:none; color: #ff6b6b;"></div>
-
-              <button type="submit" class="btn bb-btn-primary bb-anim-btn w-100">
-                Log In
-              </button>
-
-              <div class="small mt-2" style="color: rgba(255,255,255,0.62);">
-                By continuing, you agree to our terms (mock).
-              </div>
-            </form>
+            <h5 class="modal-title" id="authModalLabel">
+              <i class="fa-solid fa-user me-2"></i>
+              Welcome
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
 
-          <!-- User Sign Up Pane -->
-          <div
-            class="tab-pane fade bb-tab-pane"
-            id="pane-signup"
-            role="tabpanel"
-            aria-labelledby="tab-signup"
-            tabindex="0"
-          >
-            <form class="user-signup-form needs-validation" novalidate>
-              <div class="mb-3">
-                <label class="form-label" style="color: rgba(255,255,255,0.75);">Full Name</label>
-                <input type="text" class="form-control signup-name" placeholder="Jane Doe" required />
-              </div>
-              <div class="mb-3">
-                <label class="form-label" style="color: rgba(255,255,255,0.75);">Email</label>
-                <input type="email" class="form-control signup-email" placeholder="you@example.com" required />
-              </div>
-              <div class="mb-3">
-                <label class="form-label" style="color: rgba(255,255,255,0.75);">Create Password</label>
-                <input type="password" class="form-control signup-password" placeholder="At least 8 characters" required />
+          <div class="modal-body">
+            <!-- Tabs -->
+            <ul class="nav nav-tabs" id="authTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="tab-login"
+                  data-bs-toggle="tab"
+                  data-bs-target="#pane-login"
+                  type="button"
+                  role="tab"
+                  aria-controls="pane-login"
+                  aria-selected="true"
+                >
+                  <i class="fa-regular fa-user me-1"></i> Log In
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="tab-signup"
+                  data-bs-toggle="tab"
+                  data-bs-target="#pane-signup"
+                  type="button"
+                  role="tab"
+                  aria-controls="pane-signup"
+                  aria-selected="false"
+                >
+                  <i class="fa-regular fa-pen-to-square me-1"></i> Sign Up
+                </button>
+              </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="bb-tab-content tab-content mt-3">
+              <!-- User Login Pane -->
+              <div
+                class="tab-pane fade show active bb-tab-pane"
+                id="pane-login"
+                role="tabpanel"
+                aria-labelledby="tab-login"
+                tabindex="0"
+              >
+                <form class="user-login-form needs-validation" novalidate>
+                  <div class="mb-3">
+                    <label
+                      class="form-label"
+                      style="color: rgba(255, 255, 255, 0.75)"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control user-login-email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      class="form-label"
+                      style="color: rgba(255, 255, 255, 0.75)"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control user-login-password"
+                      placeholder="••••••••"
+                      required
+                    />
+                  </div>
+
+                  <div
+                    id="userLoginError"
+                    class="small mt-2"
+                    style="display: none; color: #ff6b6b"
+                  ></div>
+
+                  <button
+                    type="submit"
+                    class="btn bb-btn-primary bb-anim-btn w-100"
+                  >
+                    Log In
+                  </button>
+
+                  <div
+                    class="small mt-2"
+                    style="color: rgba(255, 255, 255, 0.62)"
+                  >
+                    By continuing, you agree to our terms (mock).
+                  </div>
+                </form>
               </div>
 
-              <div id="signupError" class="small mt-2" style="display:none;"></div>
+              <!-- User Sign Up Pane -->
+              <div
+                class="tab-pane fade bb-tab-pane"
+                id="pane-signup"
+                role="tabpanel"
+                aria-labelledby="tab-signup"
+                tabindex="0"
+              >
+                <form class="user-signup-form needs-validation" novalidate>
+                  <div class="mb-3">
+                    <label
+                      class="form-label"
+                      style="color: rgba(255, 255, 255, 0.75)"
+                      >Full Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control signup-name"
+                      placeholder="Jane Doe"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      class="form-label"
+                      style="color: rgba(255, 255, 255, 0.75)"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control signup-email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      class="form-label"
+                      style="color: rgba(255, 255, 255, 0.75)"
+                      >Create Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control signup-password"
+                      placeholder="At least 8 characters"
+                      required
+                    />
+                  </div>
 
-              <button type="submit" class="btn bb-btn-primary bb-anim-btn w-100">
-                Create Account
-              </button>
+                  <div
+                    id="signupError"
+                    class="small mt-2"
+                    style="display: none"
+                  ></div>
 
-              <div class="small mt-2" style="color: rgba(255,255,255,0.62);">
-                Already have an account? Switch back to Log In.
+                  <button
+                    type="submit"
+                    class="btn bb-btn-primary bb-anim-btn w-100"
+                  >
+                    Create Account
+                  </button>
+
+                  <div
+                    class="small mt-2"
+                    style="color: rgba(255, 255, 255, 0.62)"
+                  >
+                    Already have an account? Switch back to Log In.
+                  </div>
+                </form>
               </div>
-            </form>
+
+              <!-- Admin Login Pane -->
+              <div
+                class="tab-pane fade bb-tab-pane"
+                id="pane-admin"
+                role="tabpanel"
+                aria-labelledby="tab-admin"
+                tabindex="0"
+              >
+                <form class="admin-login-form needs-validation" novalidate>
+                  <div class="mb-3">
+                    <label
+                      class="form-label"
+                      style="color: rgba(255, 255, 255, 0.75)"
+                    >
+                      <i class="fa-regular fa-envelope me-1"></i> Admin Email
+                    </label>
+                    <input
+                      type="email"
+                      class="form-control admin-email"
+                      placeholder="admin@example.com"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      class="form-label"
+                      style="color: rgba(255, 255, 255, 0.75)"
+                    >
+                      <i class="fa-solid fa-key me-1"></i> Admin Password
+                    </label>
+                    <input
+                      type="password"
+                      class="form-control admin-password"
+                      placeholder="••••••••"
+                      required
+                    />
+                  </div>
+
+                  <div
+                    id="adminLoginError"
+                    class="small mt-2"
+                    style="display: none; color: #ff6b6b"
+                  ></div>
+
+                  <button
+                    type="submit"
+                    class="btn bb-btn-primary bb-anim-btn w-100"
+                  >
+                    <i class="fa-solid fa-shield-haltered me-2"></i> Login as
+                    Admin
+                  </button>
+
+                  <div
+                    class="small mt-2"
+                    style="color: rgba(255, 255, 255, 0.62)"
+                  >
+                    Admin access only. Redirects to dashboard.
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
 
-          <!-- Admin Login Pane -->
           <div
-            class="tab-pane fade bb-tab-pane"
-            id="pane-admin"
-            role="tabpanel"
-            aria-labelledby="tab-admin"
-            tabindex="0"
+            class="modal-footer"
+            style="border-top: 1px solid rgba(255, 255, 255, 0.08)"
           >
-            <form class="admin-login-form needs-validation" novalidate>
-              <div class="mb-3">
-                <label class="form-label" style="color: rgba(255,255,255,0.75);">
-                  <i class="fa-regular fa-envelope me-1"></i> Admin Email
-                </label>
-                <input type="email" class="form-control admin-email" placeholder="admin@example.com" required />
-              </div>
-              <div class="mb-3">
-                <label class="form-label" style="color: rgba(255,255,255,0.75);">
-                  <i class="fa-solid fa-key me-1"></i> Admin Password
-                </label>
-                <input type="password" class="form-control admin-password" placeholder="••••••••" required />
-              </div>
-
-              <div id="adminLoginError" class="small mt-2" style="display:none; color: #ff6b6b;"></div>
-
-              <button type="submit" class="btn bb-btn-primary bb-anim-btn w-100">
-                <i class="fa-solid fa-shield-haltered me-2"></i> Login as Admin
-              </button>
-
-              <div class="small mt-2" style="color: rgba(255,255,255,0.62);">
-                Admin access only. Redirects to dashboard.
-              </div>
-            </form>
+            <button
+              type="button"
+              class="btn btn-outline-light bb-anim-btn"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
+    </div>
+    <!-- Logout Confirmation Modal -->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      aria-labelledby="logoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div
+          class="modal-content"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(18, 22, 40, 0.98),
+              rgba(10, 14, 30, 0.98)
+            );
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+          "
+        >
+          <div
+            class="modal-header"
+            style="border-bottom: 1px solid rgba(255, 255, 255, 0.08)"
+          >
+            <h5 class="modal-title" id="logoutModalLabel">
+              <i
+                class="fa-solid fa-right-from-bracket me-2"
+                style="color: #ff6b6b"
+              ></i>
+              Confirm Logout
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
 
-      <div class="modal-footer" style="border-top: 1px solid rgba(255,255,255,0.08);">
-        <button type="button" class="btn btn-outline-light bb-anim-btn" data-bs-dismiss="modal">
-          Close
-        </button>
+          <div class="modal-body text-center py-4">
+            <div class="mb-3">
+              <i
+                class="fa-solid fa-circle-question"
+                style="font-size: 64px; color: rgba(255, 255, 255, 0.3)"
+              ></i>
+            </div>
+            <h6
+              class="fw-semibold mb-2"
+              style="color: rgba(255, 255, 255, 0.9)"
+            >
+              Are you sure you want to logout?
+            </h6>
+            <p class="small" style="color: rgba(255, 255, 255, 0.6)">
+              You will need to login again to access your account.
+            </p>
+
+            <div
+              id="logoutUserInfo"
+              class="mt-3 p-2"
+              style="
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 12px;
+                display: none;
+              "
+            >
+              <div
+                class="d-flex align-items-center justify-content-center gap-2"
+              >
+                <i
+                  class="fa-solid fa-user-circle"
+                  style="font-size: 20px; color: rgba(6, 182, 212, 0.8)"
+                ></i>
+                <span
+                  id="logoutUserName"
+                  style="color: rgba(255, 255, 255, 0.8)"
+                ></span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="modal-footer"
+            style="border-top: 1px solid rgba(255, 255, 255, 0.08)"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-light bb-anim-btn"
+              data-bs-dismiss="modal"
+            >
+              <i class="fa-solid fa-times me-2"></i> Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger bb-anim-btn"
+              id="confirmLogoutBtn"
+            >
+              <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- Bootstrap JS (required for modal + tabs) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="./api.js"></script>
     <script>
-      // Minimal JS enhancement:
-      // Ensure tab content gets a nice cross-fade by toggling .active on pane.
-      // Bootstrap already toggles .active; we keep this lightweight and compatible.
+      // Main Application
       (function () {
-        const tabElList = document.querySelectorAll('#authTabs button[data-bs-toggle="tab"]');
+        // Tab navigation
+        const tabElList = document.querySelectorAll(
+          '#authTabs button[data-bs-toggle="tab"]',
+        );
         tabElList.forEach((tabEl) => {
-          tabEl.addEventListener('shown.bs.tab', () => {
-            // Force reflow for smoother transition in some browsers.
-            const panes = document.querySelectorAll('.bb-tab-pane');
+          tabEl.addEventListener("shown.bs.tab", () => {
+            const panes = document.querySelectorAll(".bb-tab-pane");
             panes.forEach((p) => p.getBoundingClientRect());
           });
         });
 
-        // Auth (register + login)
-        // Connect Sign Up form to backend /auth/register
-        // Login wiring can be added similarly if/when needed.
+        /* -----------------------------
+       USER REGISTRATION
+       ----------------------------- */
+        const paneSignup = document.getElementById("pane-signup");
+        const signupForm = paneSignup?.querySelector("form");
+        const signupInputs = paneSignup?.querySelectorAll("input");
+        const signupButton = paneSignup?.querySelector('button[type="submit"]');
+        const signupError = paneSignup?.querySelector("#signupError");
 
+        signupForm?.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (!signupInputs || signupInputs.length < 3) return;
+
+          const fullName = signupInputs[0].value.trim();
+          const email = signupInputs[1].value.trim();
+          const password = signupInputs[2].value;
+
+          if (!fullName || !email || !password) return;
+
+          if (signupError) {
+            signupError.textContent = "";
+            signupError.style.display = "none";
+          }
+
+          if (signupButton) {
+            signupButton.disabled = true;
+            signupButton.innerHTML =
+              '<i class="fa-solid fa-spinner fa-spin me-2"></i> Creating account...';
+          }
+
+          try {
+            const result = await apiRegister({
+              fullName,
+              email,
+              password,
+            });
+
+            if (signupError) {
+              signupError.textContent =
+                result?.message || "Account created successfully!";
+              signupError.style.display = "block";
+              signupError.classList.remove("text-danger");
+              signupError.classList.add("text-success");
+            }
+
+            signupForm.reset();
+
+            // Auto-login after registration
+            const loginData = await apiLogin({ email, password });
+
+            if (loginData?.token) {
+              localStorage.setItem("authToken", loginData.token);
+              if (loginData.user) {
+                localStorage.setItem("userEmail", loginData.user.email);
+                localStorage.setItem(
+                  "userName",
+                  loginData.user.fullName || loginData.user.name,
+                );
+              }
+            }
+
+            // Close modal
+            const modalEl = document.getElementById("authModal");
+            if (modalEl) {
+              const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+              modal.hide();
+            }
+
+            // Update UI and reload
+            updateAuthButton();
+            setTimeout(() => {
+              location.reload();
+            }, 1000);
+          } catch (err) {
+            const msg = err?.message || "Registration failed";
+            if (signupError) {
+              signupError.textContent = msg;
+              signupError.style.display = "block";
+              signupError.classList.remove("text-success");
+              signupError.classList.add("text-danger");
+            }
+          } finally {
+            if (signupButton) {
+              signupButton.disabled = false;
+              signupButton.innerHTML = "Create Account";
+            }
+          }
+        });
 
         /* -----------------------------
-           Cart + Checkout (mock)
-           Tables (future mapping)
-           - Users: identity fields
-           - Products: id,name,price,quantity,...
-           - Orders: productid, userid, quantity, price, isapproved, status
-           ----------------------------- */
+       USER LOGIN
+       ----------------------------- */
+        const userLoginForm = document.querySelector(".user-login-form");
+        const userLoginError = document.getElementById("userLoginError");
 
+        if (userLoginForm) {
+          userLoginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = document
+              .querySelector(".user-login-email")
+              ?.value.trim();
+            const password = document.querySelector(
+              ".user-login-password",
+            )?.value;
+
+            if (!email || !password) {
+              if (userLoginError) {
+                userLoginError.textContent =
+                  "Please enter both email and password";
+                userLoginError.style.display = "block";
+                userLoginError.style.color = "#ff6b6b";
+              }
+              return;
+            }
+
+            if (userLoginError) {
+              userLoginError.textContent = "";
+              userLoginError.style.display = "none";
+            }
+
+            const submitBtn = userLoginForm.querySelector(
+              'button[type="submit"]',
+            );
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin me-2"></i> Logging in...';
+            }
+
+            try {
+              const result = await apiLogin({ email, password });
+
+              if (result && result.token) {
+                localStorage.setItem("authToken", result.token);
+
+                if (result.user) {
+                  localStorage.setItem("userEmail", result.user.email);
+                  localStorage.setItem(
+                    "userName",
+                    result.user.fullName || result.user.name,
+                  );
+                }
+
+                if (userLoginError) {
+                  userLoginError.textContent =
+                    "Login successful! Welcome back!";
+                  userLoginError.style.color = "#51cf66";
+                  userLoginError.style.display = "block";
+                }
+
+                const modalEl = document.getElementById("authModal");
+                if (modalEl) {
+                  const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                  modal.hide();
+                }
+
+                updateAuthButton();
+                setTimeout(() => {
+                  location.reload();
+                }, 1000);
+              } else {
+                throw new Error("Invalid response from server");
+              }
+            } catch (err) {
+              const msg =
+                err?.message || "Login failed. Please check your credentials.";
+              if (userLoginError) {
+                userLoginError.textContent = msg;
+                userLoginError.style.color = "#ff6b6b";
+                userLoginError.style.display = "block";
+              }
+            } finally {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = "Log In";
+              }
+            }
+          });
+        }
+
+        /* -----------------------------
+       ADMIN LOGIN
+       ----------------------------- */
+        const adminLoginForm = document.querySelector(".admin-login-form");
+        const adminLoginError = document.getElementById("adminLoginError");
+
+        if (adminLoginForm) {
+          adminLoginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = document.querySelector(".admin-email")?.value.trim();
+            const password = document.querySelector(".admin-password")?.value;
+
+            if (!email || !password) {
+              if (adminLoginError) {
+                adminLoginError.textContent =
+                  "Please enter both email and password";
+                adminLoginError.style.display = "block";
+              }
+              return;
+            }
+
+            if (adminLoginError) {
+              adminLoginError.textContent = "";
+              adminLoginError.style.display = "none";
+            }
+
+            const submitBtn = adminLoginForm.querySelector(
+              'button[type="submit"]',
+            );
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin me-2"></i> Logging in...';
+            }
+
+            try {
+              const result = await apiAdminLogin({ email, password });
+
+              if (result && result.token) {
+                localStorage.setItem("adminToken", result.token);
+                localStorage.setItem("adminEmail", email);
+
+                if (adminLoginError) {
+                  adminLoginError.textContent =
+                    "Login successful! Redirecting to dashboard...";
+                  adminLoginError.style.color = "#51cf66";
+                  adminLoginError.style.display = "block";
+                }
+
+                const modalEl = document.getElementById("authModal");
+                if (modalEl) {
+                  const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                  modal.hide();
+                }
+
+                setTimeout(() => {
+                  location.href = "./index.html";
+                }, 500);
+              } else {
+                throw new Error("Invalid admin credentials");
+              }
+            } catch (err) {
+              const msg = err?.message || "Admin login failed";
+              if (adminLoginError) {
+                adminLoginError.textContent = msg;
+                adminLoginError.style.color = "#ff6b6b";
+                adminLoginError.style.display = "block";
+              }
+            } finally {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML =
+                  '<i class="fa-solid fa-shield-haltered me-2"></i> Login as Admin';
+              }
+            }
+          });
+        }
+
+        /* -----------------------------
+       CART STATE
+       ----------------------------- */
         const cartState = {
-          items: [] /* {productId, title, price, img, qty} */
+          items: JSON.parse(localStorage.getItem("cartItems")) || [],
         };
+
+        // Save cart to localStorage
+        function saveCart() {
+          localStorage.setItem("cartItems", JSON.stringify(cartState.items));
+        }
 
         const money = (n) => {
           const num = Number(n || 0);
-          return '$' + num.toFixed(2);
+          return "$" + num.toFixed(2);
         };
 
         const byId = (id) => document.getElementById(id);
 
-        const cartCountBadge = byId('cartCountBadge');
-        const cartItemsContainer = byId('cartItemsContainer');
-        const cartTotalPrice = byId('cartTotalPrice');
-        const proceedToCheckoutBtn = byId('proceedToCheckoutBtn');
+        const cartCountBadge = byId("cartCountBadge");
+        const cartItemsContainer = byId("cartItemsContainer");
+        const cartTotalPrice = byId("cartTotalPrice");
+        const proceedToCheckoutBtn = byId("proceedToCheckoutBtn");
 
-        const checkoutStep1 = byId('checkoutStep1');
-        const checkoutStep2 = byId('checkoutStep2');
-        const checkoutSuccess = byId('checkoutSuccess');
-        const checkoutNextToPayment = byId('checkoutNextToPayment');
-        const checkoutBackToAddress = byId('checkoutBackToAddress');
-        const placeOrderBtn = byId('placeOrderBtn');
+        const checkoutStep1 = byId("checkoutStep1");
+        const checkoutStep2 = byId("checkoutStep2");
+        const checkoutSuccess = byId("checkoutSuccess");
+        const checkoutNextToPayment = byId("checkoutNextToPayment");
+        const checkoutBackToAddress = byId("checkoutBackToAddress");
+        const placeOrderBtn = byId("placeOrderBtn");
 
-        const shipFullName = byId('shipFullName');
-        const shipEmail = byId('shipEmail');
-        const shipAddress = byId('shipAddress');
-
-        const selectedPaymentMethod = byId('selectedPaymentMethod');
-        const paymentOptions = document.querySelectorAll('.payment-option');
-
-        const successOrderTotal = byId('successOrderTotal');
-
-        const successCloseBtn = byId('successCloseBtn');
+        const selectedPaymentMethod = byId("selectedPaymentMethod");
+        const paymentOptions = document.querySelectorAll(".payment-option");
+        const successOrderTotal = byId("successOrderTotal");
 
         function getCartCount() {
           return cartState.items.reduce((sum, it) => sum + it.qty, 0);
         }
 
         function getCartTotal() {
-          return cartState.items.reduce((sum, it) => sum + it.price * it.qty, 0);
+          return cartState.items.reduce(
+            (sum, it) => sum + it.price * it.qty,
+            0,
+          );
         }
 
         function setCartButtonCount() {
@@ -892,10 +1562,9 @@
 
         function pulseBadge() {
           if (!cartCountBadge) return;
-          cartCountBadge.classList.remove('bb-cart-badge--pulse');
-          // reflow
+          cartCountBadge.classList.remove("bb-cart-badge--pulse");
           void cartCountBadge.offsetWidth;
-          cartCountBadge.classList.add('bb-cart-badge--pulse');
+          cartCountBadge.classList.add("bb-cart-badge--pulse");
         }
 
         function renderCart() {
@@ -904,66 +1573,57 @@
 
           if (items.length === 0) {
             cartItemsContainer.innerHTML = `
-              <div class="text-center" style="color: rgba(255,255,255,0.65);">
-                <div class="mb-2">
-                  <i class="fa-regular fa-circle-check" style="font-size: 40px;"></i>
-                </div>
-                Your cart is empty.
-              </div>
-            `;
+          <div class="text-center" style="color: rgba(255,255,255,0.65);">
+            <div class="mb-2">
+              <i class="fa-regular fa-circle-check" style="font-size: 40px;"></i>
+            </div>
+            Your cart is empty.
+          </div>
+        `;
           } else {
-            cartItemsContainer.innerHTML = '';
-            items.forEach((it) => {
-              const row = document.createElement('div');
-              row.className = 'bb-cart-item px-0 mb-3';
+            cartItemsContainer.innerHTML = "";
+            items.forEach((it, index) => {
+              const row = document.createElement("div");
+              row.className = "bb-cart-item px-0 mb-3";
               row.dataset.productId = it.productId;
+              row.dataset.index = index;
 
               row.innerHTML = `
-                <div
-                  style="border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); border-radius: 16px; padding: 12px;"
-                >
-                  <div class="d-flex gap-3 align-items-start">
-                    <img
-                      src="${it.img}"
-                      alt="${it.title}"
-                      style="width: 54px; height: 54px; border-radius: 14px; object-fit: cover; border: 1px solid rgba(255,255,255,0.10);"
-                    />
-
-                    <div class="flex-grow-1">
-                      <div class="fw-semibold" style="line-height: 1.2;">${it.title}</div>
-                      <div class="small" style="color: rgba(255,255,255,0.70);">${money(it.price)} each</div>
-
-                      <div class="d-flex align-items-center justify-content-between mt-3">
-                        <div class="d-flex align-items-center gap-2">
-                          <button class="btn btn-sm bb-btn-soft bb-anim-btn bb-qty-btn" type="button" data-action="dec" aria-label="Decrease quantity">-</button>
-                          <div class="fw-bold" style="min-width: 18px; text-align: center;">${it.qty}</div>
-                          <button class="btn btn-sm bb-btn-soft bb-anim-btn bb-qty-btn" type="button" data-action="inc" aria-label="Increase quantity">+</button>
-                        </div>
-                        <div class="fw-bold">${money(it.price * it.qty)}</div>
-                      </div>
+            <div style="border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); border-radius: 16px; padding: 12px;">
+              <div class="d-flex gap-3 align-items-start">
+                <img src="${it.img}" alt="${it.title}" style="width: 54px; height: 54px; border-radius: 14px; object-fit: cover; border: 1px solid rgba(255,255,255,0.10);"/>
+                <div class="flex-grow-1">
+                  <div class="fw-semibold" style="line-height: 1.2;">${it.title}</div>
+                  <div class="small" style="color: rgba(255,255,255,0.70);">${money(it.price)} each</div>
+                  <div class="d-flex align-items-center justify-content-between mt-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <button class="btn btn-sm bb-btn-soft bb-anim-btn bb-qty-btn" type="button" data-action="dec">-</button>
+                      <div class="fw-bold" style="min-width: 18px; text-align: center;">${it.qty}</div>
+                      <button class="btn btn-sm bb-btn-soft bb-anim-btn bb-qty-btn" type="button" data-action="inc">+</button>
                     </div>
-
-                    <button class="btn btn-sm btn-outline-light bb-anim-btn" type="button" data-action="remove" aria-label="Remove item">
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
+                    <div class="fw-bold">${money(it.price * it.qty)}</div>
                   </div>
                 </div>
-              `;
+                <button class="btn btn-sm btn-outline-light bb-anim-btn" type="button" data-action="remove">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          `;
 
-              // Quantity & remove handlers
               const decBtn = row.querySelector('[data-action="dec"]');
               const incBtn = row.querySelector('[data-action="inc"]');
               const removeBtn = row.querySelector('[data-action="remove"]');
 
-              decBtn.addEventListener('click', () => updateQty(it.productId, it.qty - 1));
-              incBtn.addEventListener('click', () => updateQty(it.productId, it.qty + 1));
-
-              removeBtn.addEventListener('click', () => {
-                // fade-out animation
-                row.classList.add('bb-cart-item--removing');
-                setTimeout(() => {
-                  removeItem(it.productId);
-                }, 170);
+              decBtn.addEventListener("click", () =>
+                updateQty(it.productId, it.qty - 1),
+              );
+              incBtn.addEventListener("click", () =>
+                updateQty(it.productId, it.qty + 1),
+              );
+              removeBtn.addEventListener("click", () => {
+                row.classList.add("bb-cart-item--removing");
+                setTimeout(() => removeItem(it.productId), 170);
               });
 
               cartItemsContainer.appendChild(row);
@@ -972,11 +1632,14 @@
 
           cartTotalPrice.textContent = money(getCartTotal());
           setCartButtonCount();
+          saveCart();
         }
 
         function addToCart(product) {
           const { productId, title, price, img } = product;
-          const found = cartState.items.find((x) => String(x.productId) === String(productId));
+          const found = cartState.items.find(
+            (x) => String(x.productId) === String(productId),
+          );
           if (found) {
             found.qty += 1;
           } else {
@@ -994,151 +1657,216 @@
 
         function updateQty(productId, newQty) {
           const qty = Math.max(0, Number(newQty));
-          const it = cartState.items.find((x) => String(x.productId) === String(productId));
+          const it = cartState.items.find(
+            (x) => String(x.productId) === String(productId),
+          );
           if (!it) return;
-
           if (qty === 0) {
             removeItem(productId);
             return;
           }
-
           it.qty = qty;
           renderCart();
         }
 
         function removeItem(productId) {
-          cartState.items = cartState.items.filter((x) => String(x.productId) !== String(productId));
+          cartState.items = cartState.items.filter(
+            (x) => String(x.productId) !== String(productId),
+          );
           renderCart();
         }
 
         function bindAddToCartButtons() {
-          document.querySelectorAll('.bb-add-to-cart').forEach((btn) => {
-            btn.addEventListener('click', () => {
+          document.querySelectorAll(".bb-add-to-cart").forEach((btn) => {
+            // Remove existing listeners to avoid duplicates
+            btn.removeEventListener("click", btn._handler);
+
+            const handler = () => {
               const productId = btn.dataset.productId;
               const title = btn.dataset.productTitle;
               const price = btn.dataset.productPrice;
               const img = btn.dataset.productImg;
-
               addToCart({ productId, title, price, img });
-
-              // open offcanvas (smooth UX)
-              const offcanvasEl = document.getElementById('cartOffcanvas');
+              const offcanvasEl = document.getElementById("cartOffcanvas");
               if (offcanvasEl) {
                 const oc = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
                 oc.show();
               }
-            });
+            };
+
+            btn._handler = handler;
+            btn.addEventListener("click", handler);
           });
         }
 
         function resetCheckoutSteps() {
-          if (checkoutStep1) checkoutStep1.style.display = '';
-          if (checkoutStep2) checkoutStep2.style.display = 'none';
-          if (checkoutSuccess) checkoutSuccess.style.display = 'none';
+          if (checkoutStep1) checkoutStep1.style.display = "";
+          if (checkoutStep2) checkoutStep2.style.display = "none";
+          if (checkoutSuccess) checkoutSuccess.style.display = "none";
         }
 
         function goToStep(step) {
-          if (checkoutStep1) checkoutStep1.style.display = step === 1 ? '' : 'none';
-          if (checkoutStep2) checkoutStep2.style.display = step === 2 ? '' : 'none';
-          if (checkoutSuccess) checkoutSuccess.style.display = step === 'success' ? '' : 'none';
+          if (checkoutStep1)
+            checkoutStep1.style.display = step === 1 ? "" : "none";
+          if (checkoutStep2)
+            checkoutStep2.style.display = step === 2 ? "" : "none";
+          if (checkoutSuccess)
+            checkoutSuccess.style.display = step === "success" ? "" : "none";
         }
 
-        paymentOptions.forEach((btn) => {
-          btn.addEventListener('click', () => {
-            paymentOptions.forEach((b) => {
-              b.classList.remove('btn-primary');
-              b.classList.remove('btn-starry');
-              b.classList.add('bb-btn-soft');
+        if (paymentOptions.length) {
+          paymentOptions.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              paymentOptions.forEach((b) => {
+                b.classList.remove("btn-primary");
+                b.classList.add("bb-btn-soft");
+              });
+              btn.classList.remove("bb-btn-soft");
+              btn.classList.add("btn-primary");
+              if (selectedPaymentMethod)
+                selectedPaymentMethod.value = btn.dataset.method || "card";
             });
-
-            btn.classList.remove('bb-btn-soft');
-            btn.classList.add('btn-primary');
-
-            selectedPaymentMethod.value = btn.dataset.method || 'card';
-          });
-        });
-
-        checkoutNextToPayment.addEventListener('click', () => {
-          // mock validation
-          goToStep(2);
-        });
-
-        checkoutBackToAddress.addEventListener('click', () => {
-          goToStep(1);
-        });
-
-        placeOrderBtn.addEventListener('click', () => {
-          const total = getCartTotal();
-          if (total <= 0) return;
-
-          // Here we'd create Orders records:
-          // { productid, userid, quantity, price, isapproved, status }
-          // Mock: just show success UI with pending status.
-          successOrderTotal.textContent = money(total);
-
-          // transition to success
-          goToStep('success');
-
-          // close offcanvas (if open)
-          const offcanvasEl = document.getElementById('cartOffcanvas');
-          if (offcanvasEl) {
-            const oc = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
-            oc.hide();
-          }
-        });
-
-        // When modal opens, reset steps to Step 1.
-        const orderModalEl = document.getElementById('orderModal');
-        if (orderModalEl) {
-          orderModalEl.addEventListener('shown.bs.modal', () => {
-            resetCheckoutSteps();
           });
         }
 
-        // Auth button behavior (token in localStorage => show username)
-        const authButton = document.getElementById('authButton');
-        const authButtonText = document.getElementById('authButtonText');
-        const authButtonIcon = document.getElementById('authButtonIcon');
+        if (checkoutNextToPayment) {
+          checkoutNextToPayment.addEventListener("click", () => goToStep(2));
+        }
+
+        if (checkoutBackToAddress) {
+          checkoutBackToAddress.addEventListener("click", () => goToStep(1));
+        }
+
+        if (placeOrderBtn) {
+          placeOrderBtn.addEventListener("click", () => {
+            const total = getCartTotal();
+            if (total <= 0) return;
+            if (successOrderTotal) successOrderTotal.textContent = money(total);
+            goToStep("success");
+
+            // Clear cart after order
+            cartState.items = [];
+            renderCart();
+
+            const offcanvasEl = document.getElementById("cartOffcanvas");
+            if (offcanvasEl) {
+              const oc = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+              oc.hide();
+            }
+          });
+        }
+
+        const orderModalEl = document.getElementById("orderModal");
+        if (orderModalEl) {
+          orderModalEl.addEventListener("shown.bs.modal", resetCheckoutSteps);
+        }
+
+        /* -----------------------------
+       AUTH BUTTON WITH LOGOUT MODAL
+       ----------------------------- */
+        const authButton = document.getElementById("authButton");
+        const authButtonText = document.getElementById("authButtonText");
+        const authButtonIcon = document.getElementById("authButtonIcon");
+        const logoutModal = document.getElementById("logoutModal");
+        const confirmLogoutBtn = document.getElementById("confirmLogoutBtn");
+        const logoutUserName = document.getElementById("logoutUserName");
+        const logoutUserInfo = document.getElementById("logoutUserInfo");
 
         function getUsernameFromToken() {
           try {
-            const token = localStorage.getItem('authToken');
+            const token = localStorage.getItem("authToken");
             if (!token) return null;
-            // If backend stores token as JWT, try decode payload.
-            const parts = String(token).split('.');
+            const parts = String(token).split(".");
             if (parts.length !== 3) return null;
-            const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+            const payload = JSON.parse(
+              atob(parts[1].replace(/-/g, "+").replace(/_/g, "/")),
+            );
             return payload?.fullName || payload?.name || payload?.email || null;
           } catch {
-            return null;
+            const userEmail = localStorage.getItem("userEmail");
+            return userEmail ? userEmail.split("@")[0] : null;
           }
         }
 
-        (function initAuthButton() {
+        function performLogout() {
+          localStorage.removeItem("authToken");
+          localStorage.removeItem("userEmail");
+          localStorage.removeItem("userName");
+          localStorage.removeItem("adminToken");
+          localStorage.removeItem("adminEmail");
+
+          if (logoutModal) {
+            const modal = bootstrap.Modal.getInstance(logoutModal);
+            if (modal) modal.hide();
+          }
+
+          location.reload();
+        }
+
+        function updateAuthButton() {
           if (!authButton || !authButtonText) return;
-          const token = localStorage.getItem('authToken');
+          const token = localStorage.getItem("authToken");
+
           if (token) {
             const username = getUsernameFromToken();
-            authButtonText.textContent = 'logout';
-            if (authButtonIcon) authButtonIcon.classList.remove('fa-regular');
-            // Optional: allow clicking to open modal only if not logged in; here token exists so disable modal.
-            authButton.removeAttribute('data-bs-toggle');
-            authButton.removeAttribute('data-bs-target');
-            localStorage.clear(); // Clear token on logout click (for demo purposes; in real app, you'd want a more robust logout flow)
-            window.location.reload(); // Reload to update UI after logout
-          } else {
-            authButtonText.textContent = 'Login / Register';
-            if (authButtonIcon) {
-              authButtonIcon.classList.add('fa-regular');
-            }
-          }
-        })();
+            const userEmail = localStorage.getItem("userEmail");
+            const displayName =
+              username || (userEmail ? userEmail.split("@")[0] : "User");
 
-        // Init
+            authButtonText.textContent = `Hi, ${displayName}`;
+
+            if (authButtonIcon) {
+              authButtonIcon.classList.remove("fa-regular");
+              authButtonIcon.classList.add("fa-solid", "fa-user-circle");
+            }
+
+            authButton.removeAttribute("data-bs-toggle");
+            authButton.removeAttribute("data-bs-target");
+
+            authButton.onclick = (e) => {
+              e.preventDefault();
+              if (logoutUserInfo && logoutUserName) {
+                const nameToShow =
+                  username || (userEmail ? userEmail.split("@")[0] : "User");
+                logoutUserName.textContent = `Logged in as: ${nameToShow}`;
+                logoutUserInfo.style.display = "block";
+              }
+              if (logoutModal) {
+                const modal = new bootstrap.Modal(logoutModal);
+                modal.show();
+              }
+            };
+          } else {
+            authButtonText.textContent = "Login / Register";
+
+            if (authButtonIcon) {
+              authButtonIcon.classList.add("fa-regular");
+              authButtonIcon.classList.remove("fa-solid", "fa-user-circle");
+            }
+
+            authButton.setAttribute("data-bs-toggle", "modal");
+            authButton.setAttribute("data-bs-target", "#authModal");
+            authButton.onclick = null;
+          }
+        }
+
+        if (confirmLogoutBtn) {
+          confirmLogoutBtn.addEventListener("click", performLogout);
+        }
+
+        if (logoutModal) {
+          logoutModal.addEventListener("hidden.bs.modal", () => {
+            if (logoutUserInfo) {
+              logoutUserInfo.style.display = "none";
+            }
+          });
+        }
+
+        // Initialize everything
         bindAddToCartButtons();
         renderCart();
+        updateAuthButton();
       })();
     </script>
   </body>
 </html>
-
