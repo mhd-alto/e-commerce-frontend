@@ -63,3 +63,56 @@ const apiAdminRegister = async ({ fullName, email, password }) => {
 };
 
 
+
+
+// Add these functions to your api.js file
+
+/**
+ * Fetch all products from the backend API
+ */
+const apiGetProducts = async () => {
+  const token = localStorage.getItem("authToken");
+  
+  const headers = { 
+    "Content-Type": "application/json"
+  };
+
+  // If a token exists, format it with the Bearer prefix expected by your middleware
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
+  const res = await fetch(`${BASE_URL}/products`, {
+    method: "GET",
+    headers: headers,
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to load products");
+  }
+  return await res.json();
+};
+
+/**
+ * Submit an order item to the backend API
+ */
+const apiCreateOrder = async ({ customerName, productId, quantity }) => {
+  const res = await fetch(`${BASE_URL}/orders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ customerName, productId, quantity }),
+  });
+  
+  let data;
+  try {
+    data = await res.json();
+  } catch {
+    data = { message: await res.text() };
+  }
+  
+  if (!res.ok) {
+    const msg = data?.message || "Order submission failed";
+    throw new Error(msg);
+  }
+  return data;
+};
